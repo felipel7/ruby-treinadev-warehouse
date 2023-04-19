@@ -17,6 +17,7 @@ describe "Home screen" do
 
     visit("/")
 
+    expect(page).not_to have_content("Não há galpões cadastrados")
     # First warehouse
     expect(page).to have_content("Rio")
     expect(page).to have_content("Código: SDU")
@@ -27,5 +28,11 @@ describe "Home screen" do
     expect(page).to have_content("Código: MCZ")
     expect(page).to have_content("Cidade: Maceio")
     expect(page).to have_content("50.000 m²")
+  end
+
+  it "should display a default message when there are no warehouses" do
+    visit("/")
+
+    expect(page).to have_content("Não há galpões cadastrados")
   end
 end

@@ -5,7 +5,7 @@ describe "Home screen" do
     # Arrange
 
     # Act
-    visit("/")
+    visit root_path
 
     # Assert
     expect(page).to have_content("Galpões & Estoque")
@@ -15,7 +15,7 @@ describe "Home screen" do
     Warehouse.create(name: "Rio", code: "SDU", city: "Rio de Janeiro", area: 60_000)
     Warehouse.create(name: "Maceio", code: "MCZ", city: "Maceio", area: 50_000)
 
-    visit("/")
+    visit root_path
 
     expect(page).not_to have_content("Não há galpões cadastrados")
     # First warehouse
@@ -31,7 +31,7 @@ describe "Home screen" do
   end
 
   it "should display a default message when there are no warehouses" do
-    visit("/")
+    visit root_path
 
     expect(page).to have_content("Não há galpões cadastrados")
   end

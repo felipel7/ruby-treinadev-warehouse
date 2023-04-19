@@ -12,7 +12,7 @@ describe "Warehouse details" do
       description: "Galpão destinado para cargas internacionais",
     )
 
-    visit("/")
+    visit root_path
     click_on("Aeroporto SP")
 
     expect(page).to have_content("Galpão GRU")
@@ -34,7 +34,7 @@ describe "Warehouse details" do
       description: "Galpão destinado para cargas internacionais",
     )
 
-    visit("/")
+    visit root_path
     click_on("Aeroporto SP")
     click_on("Voltar")
 

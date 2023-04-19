@@ -1,7 +1,7 @@
 <section>
 	<h2>Galpão <%= @warehouse.code %></h2>
 
-	<dl>
+	<dl id="warehouse-details">
 		<div>
 			<dt>Nome:</dt>
 			<dd><%= @warehouse.name %></dd>
@@ -25,5 +25,5 @@
 
 	<p><%= @warehouse.description %></p>
 
-	<%= link_to 'Voltar', root_path %>
+	<%= link_to 'Voltar', root_path, class: 'btn btn-primary' %>
 </section>

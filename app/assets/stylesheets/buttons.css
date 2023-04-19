@@ -1,0 +1,20 @@
+.btn {
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  letter-spacing: 0.75px;
+  outline: none;
+  padding: 6px 10px;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: #1f82e6;
+  color: #ebebeb;
+  transition: filter 0.2s;
+}
+
+.btn-primary:hover {
+  filter: brightness(0.9);
+}

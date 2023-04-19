@@ -13,3 +13,44 @@
  *= require_tree .
  *= require_self
  */
+
+body,
+input,
+textarea {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 25px 1fr 25px;
+}
+
+main > * {
+  grid-column: 2;
+}
+
+.full-bleed {
+  grid-column: 1 / span 3;
+}
+
+@media screen and (min-width: 1024px) {
+  main {
+    grid-template-columns: 1fr 900px 1fr;
+  }
+}
+
+header {
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
+  height: 60px;
+  padding-inline: 2vw;
+}
+
+section {
+  padding-block: 2rem;
+}
+
+ul,
+menu {
+  list-style: none;
+}

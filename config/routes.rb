@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   get "/", to: "home#index"
+
+  resources :warehouses, only: [:show]
 end

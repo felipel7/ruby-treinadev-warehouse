@@ -1,6 +1,9 @@
 <section>
 	<h2>Galpões</h2>
-	<ul>
+
+	<%= link_to('Cadastrar Galpão', new_warehouse_path) %>
+
+	<ul id="warehouses-list">
 		<% @warehouses.each do |warehouse| %>
 			<li>
 				<%= link_to warehouse.name, warehouse_path(warehouse) %>

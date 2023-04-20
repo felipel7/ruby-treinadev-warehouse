@@ -27,8 +27,24 @@ describe "Warehouse form" do
     click_on "Enviar"
 
     expect(current_path).to eq root_path
+    expect(page).to have_content "Galpão cadastrado com sucesso."
     expect(page).to have_content "Rio de Janeiro"
     expect(page).to have_content "RIO"
     expect(page).to have_content "32.000 m²"
+  end
+
+  it "should not be able to register a new warehouse if any field is empty" do
+    visit root_path
+    click_on "Cadastrar Galpão"
+    fill_in "Nome", with: ""
+    fill_in "Descrição", with: ""
+    fill_in "Código", with: ""
+    fill_in "Endereço", with: ""
+    fill_in "Cidade", with: ""
+    fill_in "CEP", with: ""
+    fill_in "Área", with: ""
+    click_on "Enviar"
+
+    expect(page).to have_content "Galpão não cadastrado."
   end
 end

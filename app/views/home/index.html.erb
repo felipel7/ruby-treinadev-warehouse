@@ -1,20 +1,20 @@
 <section>
-	<h2>Galpões</h2>
+  <h2>Galpões</h2>
 
-	<%= link_to('Cadastrar Galpão', new_warehouse_path) %>
+  <%= link_to('Cadastrar Galpão', new_warehouse_path) %>
 
-	<ul id="warehouses-list">
-		<% @warehouses.each do |warehouse| %>
-			<li>
-				<%= link_to warehouse.name, warehouse_path(warehouse) %>
-				<p><strong>Código:</strong> <%= warehouse.code %></p>
-				<p><strong>Cidade:</strong> <%= warehouse.city %></p>
-				<p><strong>Área:</strong> <%= number_with_delimiter(warehouse.area, delimiter: '.') %> m²</p>
-			</li>
-		<% end %>
+  <ul id="warehouses-list">
+    <% @warehouses.each do |warehouse| %>
+      <li>
+        <%= link_to warehouse.name, warehouse_path(warehouse) %>
+        <p><strong>Código:</strong> <%= warehouse.code %></p>
+        <p><strong>Cidade:</strong> <%= warehouse.city %></p>
+        <p><strong>Área:</strong> <%= number_with_delimiter(warehouse.area, delimiter: '.') %> m²</p>
+      </li>
+    <% end %>
 
-		<% if @warehouses.empty? %>
-			<p style="color: tomato;">Não há galpões cadastrados</p>
-		<% end %>
-	</ul>
+    <% if @warehouses.empty? %>
+      <p style="color: tomato;">Não há galpões cadastrados</p>
+    <% end %>
+  </ul>
 </section>

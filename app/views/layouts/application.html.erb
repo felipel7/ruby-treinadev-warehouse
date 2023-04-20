@@ -21,6 +21,10 @@
 		</header>
 
 		<main>
+			<% if flash.notice %>
+				<p style="padding-block: 20px"><%= flash.notice %></p>
+			<% end %>
+
 			<%= yield %>
 		</main>
 	</body>

@@ -4,6 +4,7 @@ class WarehousesController < ApplicationController
   end
 
   def new
+    @warehouse = Warehouse.new
   end
 
   def create
@@ -18,11 +19,15 @@ class WarehousesController < ApplicationController
       :area
     )
 
-    warehouse = Warehouse.new(warehouse_params)
+    @warehouse = Warehouse.new(warehouse_params)
 
-    if warehouse.save
+    if @warehouse.save
       # There is no view here
+      flash[:notice] = "Galpão cadastrado com sucesso."
       redirect_to root_path
+    else
+      flash.now[:notice] = "Galpão não cadastrado."
+      render :new
     end
   end
 end

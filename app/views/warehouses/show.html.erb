@@ -1,29 +1,29 @@
 <section>
-	<h2>Galpão <%= @warehouse.code %></h2>
+  <h2>Galpão <%= @warehouse.code %></h2>
 
-	<dl id="warehouse-details">
-		<div>
-			<dt>Nome:</dt>
-			<dd><%= @warehouse.name %></dd>
-		</div>
+  <dl id="warehouse-details">
+    <div>
+      <dt>Nome:</dt>
+      <dd><%= @warehouse.name %></dd>
+    </div>
 
-		<div>
-			<dt>Cidade:</dt>
-			<dd><%= @warehouse.city %></dd>
-		</div>
+    <div>
+      <dt>Cidade:</dt>
+      <dd><%= @warehouse.city %></dd>
+    </div>
 
-		<div>
-			<dt>Área:</dt>
-			<dd><%= number_with_delimiter(@warehouse.area, delimiter: ".") %> m²</dd>
-		</div>
+    <div>
+      <dt>Área:</dt>
+      <dd><%= number_with_delimiter(@warehouse.area, delimiter: ".") %> m²</dd>
+    </div>
 
-		<div>
-			<dt>Endereço:</dt>
-			<dd><%= @warehouse.address %> CEP: <%= @warehouse.cep %></dd>
-		</div>
-	</dl>
+    <div>
+      <dt>Endereço:</dt>
+      <dd><%= @warehouse.address %> CEP: <%= @warehouse.cep %></dd>
+    </div>
+  </dl>
 
-	<p><%= @warehouse.description %></p>
+  <p><%= @warehouse.description %></p>
 
-	<%= link_to 'Voltar', root_path, class: 'btn btn-primary' %>
+  <%= link_to 'Voltar', root_path, class: 'btn btn-primary' %>
 </section>

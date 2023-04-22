@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root to: "home#index"
 
-  resources :warehouses, only: [:show, :new, :create, :edit, :update]
+  resources :warehouses, only: [:show, :new, :create, :edit, :update, :destroy]
 end

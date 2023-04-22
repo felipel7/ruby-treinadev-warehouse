@@ -35,6 +35,9 @@
 
   <p><%= @warehouse.description %></p>
 
-  <%= link_to 'Editar', edit_warehouse_path(@warehouse), class: 'btn' %>
-  <%= link_to 'Voltar', root_path, class: 'btn btn-primary' %>
+  <div class="btn--controls">
+    <%= link_to 'Editar', edit_warehouse_path(@warehouse), class: 'btn btn-primary' %>
+    <%= button_to 'Remover', warehouse_path(@warehouse), method: :delete, class: 'btn btn-alert' %>
+    <%= link_to 'Voltar', root_path, class: 'btn btn-secondary' %>
+  </div>
 </section>

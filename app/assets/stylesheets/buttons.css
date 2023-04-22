@@ -7,14 +7,33 @@
   outline: none;
   padding: 6px 10px;
   text-decoration: none;
+  transition: filter 0.2s;
+}
+
+.btn:hover {
+  filter: brightness(0.9);
 }
 
 .btn-primary {
   background: #1f82e6;
   color: #ebebeb;
-  transition: filter 0.2s;
 }
 
-.btn-primary:hover {
-  filter: brightness(0.9);
+.btn-secondary {
+  background: #d6d6d6;
+  color: #131313;
+}
+
+.btn-alert {
+  background: #e6261f;
+  color: #ebebeb;
+}
+
+.btn--controls {
+  display: flex;
+  gap: 5px;
+}
+
+.btn--controls .btn {
+  height: 100%;
 }

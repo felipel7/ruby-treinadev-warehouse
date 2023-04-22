@@ -13,6 +13,11 @@
     </div>
 
     <div>
+      <dt>Código:</dt>
+      <dd><%= @warehouse.code %></dd>
+    </div>
+
+    <div>
       <dt>Área:</dt>
       <dd><%= number_with_delimiter(@warehouse.area, delimiter: ".") %> m²</dd>
     </div>
@@ -21,9 +26,15 @@
       <dt>Endereço:</dt>
       <dd><%= @warehouse.address %> CEP: <%= @warehouse.cep %></dd>
     </div>
+
+    <div>
+      <dt>Descrição:</dt>
+      <dd><%= @warehouse.description %></dd>
+    </div>
   </dl>
 
   <p><%= @warehouse.description %></p>
 
+  <%= link_to 'Editar', edit_warehouse_path(@warehouse), class: 'btn' %>
   <%= link_to 'Voltar', root_path, class: 'btn btn-primary' %>
 </section>

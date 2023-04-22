@@ -1,0 +1,38 @@
+<%= form_with(model: @warehouse, html: { id: "warehouse-form"}) do |form| %>
+  <p>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </p>
+
+  <p>
+    <%= form.label :description %>
+    <%= form.text_field :description %>
+  </p>
+
+  <p>
+    <%= form.label :code %>
+    <%= form.text_field :code %>
+  </p>
+
+  <p>
+    <%= form.label :address %>
+    <%= form.text_field :address %>
+  </p>
+
+  <p>
+    <%= form.label :city %>
+    <%= form.text_field :city %>
+  </p>
+
+  <p>
+    <%= form.label :cep %>
+    <%= form.text_field :cep %>
+  </p>
+
+  <p>
+    <%= form.label :area %>
+    <%= form.number_field :area %>
+  </p>
+
+  <%= button_tag "Enviar", type: "submit", class: "btn btn-primary" %>
+<% end %>

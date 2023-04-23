@@ -1,0 +1,15 @@
+.table {
+  padding-block: 1rem;
+}
+
+.table thead tr th {
+  background: #333;
+  border-radius: 2px;
+  color: #eee;
+  padding: 5px;
+  user-select: none;
+}
+
+.table tbody tr td {
+  padding: 5px;
+}

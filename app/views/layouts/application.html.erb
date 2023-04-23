@@ -1,31 +1,32 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>WarehouseApp</title>
-		<meta name="viewport" content="width=device-width,initial-scale=1">
-		<%= csrf_meta_tags %>
-		<%= csp_meta_tag %>
+  <head>
+    <title>WarehouseApp</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
 
-		<%= stylesheet_link_tag "application" %>
-	</head>
+    <%= stylesheet_link_tag "application" %>
+  </head>
 
-	<body>
-		<header class="full-bleed">
-			<nav class="nav">
-				<h1>Galpões & Estoque</h1>
-				<menu class="nav__menu">
-					<li>Link 1</li>
-					<li>Link 2</li>
-				</menu>
-			</nav>
-		</header>
+  <body>
+    <header class="full-bleed">
+      <nav class="nav">
+        <h1>Galpões & <br />
+          Estoque</h1>
+        <menu class="nav__menu">
+          <li class="nav__item"><%= link_to 'Galpões', root_path %></li>
+          <li class="nav__item"><%= link_to 'Fornecedores', suppliers_path %></li>
+        </menu>
+      </nav>
+    </header>
 
-		<main>
-			<% if flash.notice %>
-				<p style="padding-block: 20px"><%= flash.notice %></p>
-			<% end %>
+    <main>
+      <% if flash.notice %>
+        <p style="padding-block: 20px"><%= flash.notice %></p>
+      <% end %>
 
-			<%= yield %>
-		</main>
-	</body>
+      <%= yield %>
+    </main>
+  </body>
 </html>

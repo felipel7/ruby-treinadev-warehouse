@@ -1,6 +1,6 @@
 require "rails_helper"
 
-describe "Suppliers details" do
+describe "Suppliers view" do
   it "should redirect to suppliers page when clicked" do
     visit root_path
     within "nav" do
@@ -40,10 +40,10 @@ describe "Suppliers details" do
     expect(page).to have_content "Teresina"
   end
 
-  it "should create and display new suppliers" do
+  it "should display a default message when there are no suppliers" do
     visit root_path
     click_on "Fornecedores"
 
-    expect(page).to have_content "Não existe nenhum fornecedor cadastrado."
+    expect(page).to have_content "Não existem fornecedores cadastrados."
   end
 end

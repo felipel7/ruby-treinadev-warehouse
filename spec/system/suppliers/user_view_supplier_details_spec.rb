@@ -16,8 +16,8 @@ describe "Supplier details" do
     click_on "Fornecedores"
     click_on "ACME"
 
-    expect(page).to have_content "ACME LTDA"
     expect(page).to have_content "ACME"
+    expect(page).to have_content "ACME LTDA"
     expect(page).to have_content "3333333333333"
     expect(page).to have_content "Av das Palmas, 100"
     expect(page).to have_content "Bauru"
@@ -27,8 +27,8 @@ describe "Supplier details" do
 
   it "should redirect to home page" do
     supplier = Supplier.create!(
-      corporate_name: "ACME LTDA",
-      brand_name: "ACME",
+      corporate_name: "ACME",
+      brand_name: "ACME LTDA",
       registration_number: "333333333333",
       full_address: "Av das Palmas, 100",
       city: "Bauru",
@@ -37,8 +37,8 @@ describe "Supplier details" do
     )
 
     visit root_path
-    click_on 'Fornecedores'
-    click_on 'ACME'
-    click_on 'Voltar'
+    click_on "Fornecedores"
+    click_on "ACME"
+    click_on "Voltar"
   end
 end

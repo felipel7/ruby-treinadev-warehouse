@@ -12,8 +12,8 @@ describe "Suppliers view" do
 
   it "should create and display new suppliers" do
     first_supplier = Supplier.create!(
-      corporate_name: "ACME LTDA",
-      brand_name: "ACME",
+      corporate_name: "ACME",
+      brand_name: "ACME LTDA",
       registration_number: "3333333333333",
       full_address: "Av das Palmas, 100",
       city: "Bauru",
@@ -22,8 +22,8 @@ describe "Suppliers view" do
     )
 
     second_supplier = Supplier.create!(
-      corporate_name: "Spark Industries Brasil LTDA",
-      brand_name: "Spark",
+      corporate_name: "Spark",
+      brand_name: "Spark Industries Brasil LTDA",
       registration_number: "4444433333333",
       full_address: "Av Torres, 200",
       city: "Teresina",

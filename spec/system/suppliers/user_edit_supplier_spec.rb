@@ -14,8 +14,8 @@ describe "Supplier edit" do
     click_on "ACME"
     click_on "Editar"
 
-    expect(page).to have_field("Nome fantasia", with: "ACME")
-    expect(page).to have_field("Razão social", with: "ACME Corporation")
+    expect(page).to have_field("Razão social", with: "ACME")
+    expect(page).to have_field("Nome fantasia", with: "ACME Corporation")
     expect(page).to have_field("CNPJ", with: "12345678901234")
     expect(page).to have_field("Endereço", with: "Av. Main Street")
     expect(page).to have_field("Cidade", with: "Curitiba")

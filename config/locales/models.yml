@@ -13,8 +13,8 @@ pt-BR:
         cep: 'CEP'
         area: 'Área'
       supplier:
-        corporate_name: 'Nome fantasia'
-        brand_name: 'Razão social'
+        corporate_name: 'Razão social'
+        brand_name: 'Nome fantasia'
         registration_number: 'CNPJ'
         full_address: 'Endereço'
         city: 'Cidade'

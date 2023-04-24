@@ -19,8 +19,8 @@ describe "Supplier form" do
     visit root_path
     click_on "Fornecedores"
     click_on "Cadastrar novo fornecedor"
-    fill_in "Nome fantasia", with: "ACME"
-    fill_in "Razão social", with: "ACME Corporation"
+    fill_in "Razão social", with: "ACME"
+    fill_in "Nome fantasia", with: "ACME Corporation"
     fill_in "CNPJ", with: "12345678901234"
     fill_in "Endereço", with: "123 Main St"
     fill_in "Cidade", with: "Curitiba"
@@ -47,8 +47,8 @@ describe "Supplier form" do
     click_on "Enviar"
 
     expect(page).to have_content "Fornecedor não cadastrado"
-    expect(page).to have_content "Nome fantasia não pode ficar em branco"
     expect(page).to have_content "Razão social não pode ficar em branco"
+    expect(page).to have_content "Nome fantasia não pode ficar em branco"
     expect(page).to have_content "CNPJ não pode ficar em branco"
     expect(page).to have_content "Endereço não pode ficar em branco"
     expect(page).to have_content "Cidade não pode ficar em branco"

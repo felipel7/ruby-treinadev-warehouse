@@ -30,8 +30,10 @@
 }
 
 .btn--controls {
+  align-items: center;
   display: flex;
   gap: 5px;
+  padding-block: 1rem;
 }
 
 .btn--controls .btn {

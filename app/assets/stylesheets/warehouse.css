@@ -18,15 +18,3 @@
 #warehouses-list li {
   padding-block: 20px;
 }
-
-#warehouse-form p {
-  padding-block: 5px;
-}
-
-#warehouse-form label {
-  display: block;
-}
-
-#warehouse-form input {
-  padding: 5px;
-}

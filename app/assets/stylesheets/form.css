@@ -1,0 +1,11 @@
+.form p {
+  padding-block: 5px;
+}
+
+.form label {
+  display: block;
+}
+
+.form input {
+  padding: 5px;
+}

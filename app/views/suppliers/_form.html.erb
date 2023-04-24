@@ -1,0 +1,41 @@
+<%= form_with(model: @supplier, html: { class: "form" }) do |form| %>
+  <p>
+    <%= form.label :corporate_name %>
+    <%= form.text_field :corporate_name %>
+  </p>
+
+  <p>
+    <%= form.label :brand_name %>
+    <%= form.text_field :brand_name %>
+  </p>
+
+  <p>
+    <%= form.label :registration_number %>
+    <%= form.text_field :registration_number %>
+  </p>
+
+  <p>
+    <%= form.label :full_address %>
+    <%= form.text_field :full_address %>
+  </p>
+
+  <p>
+    <%= form.label :city %>
+    <%= form.text_field :city %>
+  </p>
+
+  <p>
+    <%= form.label :state %>
+    <%= form.text_field :state %>
+  </p>
+
+  <p>
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+  </p>
+
+  <div class="btn--controls">
+    <%= button_tag "Enviar", type: "submit", class: "btn btn-primary" %>
+    <%= link_to 'Voltar', root_path, class: "btn btn-secondary" %>
+  </div>
+<% end %>

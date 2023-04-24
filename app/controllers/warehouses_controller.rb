@@ -15,7 +15,7 @@ class WarehousesController < ApplicationController
       flash[:notice] = "Galpão cadastrado com sucesso."
       redirect_to root_path
     else
-      flash.now[:notice] = "Galpão não cadastrado."
+      flash.now[:alert] = "Galpão não cadastrado."
       render :new
     end
   end
@@ -27,7 +27,7 @@ class WarehousesController < ApplicationController
       flash[:notice] = "Galpão atualizado com sucesso."
       redirect_to warehouse_path(@warehouse)
     else
-      flash.now[:notice] = "Não foi possível atualizar o galpão."
+      flash.now[:alert] = "Não foi possível atualizar o galpão."
       render :edit
     end
   end

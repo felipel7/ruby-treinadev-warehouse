@@ -1,0 +1,12 @@
+.details-container__wrapper div {
+  display: flex;
+  padding-block: 5px;
+}
+
+.details-container__wrapper dt {
+  font-weight: bold;
+}
+
+.details-container__wrapper dd {
+  margin-inline-start: 5px;
+}

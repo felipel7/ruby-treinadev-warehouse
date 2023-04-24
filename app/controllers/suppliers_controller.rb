@@ -19,7 +19,7 @@ class SuppliersController < ApplicationController
       # redirect_to root_path
       redirect_to suppliers_path
     else
-      flash.now[:notice] = "Fornecedor não cadastrado."
+      flash.now[:alert] = "Fornecedor não cadastrado."
       render :new
     end
   end
@@ -31,7 +31,7 @@ class SuppliersController < ApplicationController
       flash[:notice] = "Fornecedor atualizado com sucesso."
       redirect_to supplier_path(@supplier)
     else
-      flash.now[:notice] = "Não foi possível atualizar o fornecedor."
+      flash.now[:alert] = "Não foi possível atualizar o fornecedor."
       render :edit
     end
   end

@@ -1,20 +1,3 @@
-#warehouse-details div {
-  display: flex;
-  padding-block: 5px;
-}
-
-#warehouse-details dt {
-  font-weight: bold;
-}
-
-#warehouse-details dd {
-  margin-inline-start: 5px;
-}
-
-#warehouse-details ~ p {
-  margin-block-end: 20px;
-}
-
 #warehouses-list li {
-  padding-block: 20px;
+  padding-block: 15px;
 }

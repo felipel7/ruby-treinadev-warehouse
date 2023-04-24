@@ -1,0 +1,19 @@
+.flash__wrapper {
+  padding: 15px;
+}
+
+.flash__message {
+  max-width: 900px;
+  margin-inline: auto;
+  font-weight: bold;
+}
+
+.alert {
+  background: #f83f3f;
+  color: #efefef;
+}
+
+.notice {
+  background: #34a316;
+  color: #efefef;
+}

@@ -1,7 +1,7 @@
 <section>
   <h2>Galpão <%= @warehouse.code %></h2>
 
-  <dl id="warehouse-details">
+  <dl class="details-container__wrapper">
     <div>
       <dt>Nome:</dt>
       <dd><%= @warehouse.name %></dd>
@@ -32,8 +32,6 @@
       <dd><%= @warehouse.description %></dd>
     </div>
   </dl>
-
-  <p><%= @warehouse.description %></p>
 
   <div class="btn--controls">
     <%= link_to 'Editar', edit_warehouse_path(@warehouse), class: 'btn btn-primary' %>

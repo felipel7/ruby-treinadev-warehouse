@@ -22,8 +22,10 @@
     </header>
 
     <main>
-      <% if flash.notice %>
-        <p style="padding-block: 20px"><%= flash.notice %></p>
+      <% flash.each do |type, msg|%>
+        <div class="flash__wrapper <%= type %> full-bleed" >
+          <p class="flash__message"><%= msg %></p>
+        </div>
       <% end %>
 
       <%= yield %>

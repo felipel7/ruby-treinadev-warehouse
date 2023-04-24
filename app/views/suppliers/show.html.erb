@@ -1,0 +1,24 @@
+<h1>Fornecedor</h1>
+<section>
+  <h2><%= @supplier.corporate_name %></h2>
+
+  <dl>
+    <div>
+      <dt>Documento:</dt>
+      <dd><%= @supplier.registration_number %></dd>
+    </div>
+    <div>
+      <dt>Endereço:</dt>
+      <dd><%= @supplier.full_address %> - <%= @supplier.city %> - <%= @supplier.state %></dd>
+    </div>
+    <div>
+      <dt>E-mail:</dt>
+      <dd><%= @supplier.email %></dd>
+    </div>
+  </dl>
+
+  <div class='btn--controls'>
+    <%= link_to 'Editar', edit_supplier_path(@supplier), class: "btn btn-primary" %>
+    <%= link_to 'Voltar', root_path, class: "btn btn-secondary" %>
+  </div>
+</section>

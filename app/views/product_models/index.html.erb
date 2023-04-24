@@ -1,0 +1,24 @@
+<section>
+  <h2>Produtos</h2>
+
+  <% if @products.empty? %>
+    <p>Nenhum modelo de produto cadastrado.</p>
+  <% end %>
+
+  <% @products.each do |product| %>
+    <dl class="details-container__wrapper">
+      <div>
+        <dt>Nome:</dt>
+        <dd><%= product.name %></dd>
+      </div>
+      <div>
+        <dt>SKU:</dt>
+        <dd><%= product.sku %></dd>
+      </div>
+      <div>
+        <dt>Fornecedor:</dt>
+        <dd><%= product.supplier&.brand_name %></dd>
+      </div>
+    </dl>
+  <% end %>
+</section>

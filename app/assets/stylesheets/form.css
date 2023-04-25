@@ -6,6 +6,7 @@
   display: block;
 }
 
-.form input {
+.form input,
+.form select {
   padding: 5px;
 }

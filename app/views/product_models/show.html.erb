@@ -1,0 +1,25 @@
+<section>
+  <h2><%= @product_model.name %></h2>
+
+  <dl>
+    <div>
+      <dt>Fornecedor:</dt>
+      <dd><%= @product_model.supplier.brand_name %></dd>
+    </div>
+
+    <div>
+      <dt>SKU:</dt>
+      <dd><%= @product_model.sku %></dd>
+    </div>
+
+    <div>
+      <dt>Dimensão:</dt>
+      <dd><%= @product_model.height %>cm x <%= @product_model.width %>cm x<%= @product_model.depth %>cm </dd>
+    </div>
+
+    <div>
+      <dt>Peso:</dt>
+      <dd><%= @product_model.weight %>g</dd>
+    </div>
+  </dl>
+</section>

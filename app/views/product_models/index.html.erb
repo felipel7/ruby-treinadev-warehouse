@@ -1,11 +1,13 @@
 <section>
   <h2>Produtos</h2>
 
-  <% if @products.empty? %>
+  <% if @product_models.empty? %>
     <p>Nenhum modelo de produto cadastrado.</p>
   <% end %>
 
-  <% @products.each do |product| %>
+  <%= link_to 'Cadastrar novo', new_product_model_path %>
+
+  <% @product_models.each do |product| %>
     <dl class="details-container__wrapper">
       <div>
         <dt>Nome:</dt>
@@ -17,7 +19,7 @@
       </div>
       <div>
         <dt>Fornecedor:</dt>
-        <dd><%= product.supplier&.brand_name %></dd>
+        <dd><%= product.supplier.brand_name %></dd>
       </div>
     </dl>
   <% end %>

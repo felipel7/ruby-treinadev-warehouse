@@ -1,0 +1,45 @@
+<section>
+  <h2>Cadastrar Novo Modelo de Produto</h2>
+
+  <%= form_with(model: @product_model, html: { class: "form" }) do |form| %>
+    <p>
+      <%= form.label :name %>
+      <%= form.text_field :name %>
+    </p>
+
+    <p>
+      <%= form.label :weight %>
+      <%= form.number_field :weight %>
+    </p>
+
+    <p>
+      <%= form.label :width %>
+      <%= form.number_field :width %>
+    </p>
+
+    <p>
+      <%= form.label :height %>
+      <%= form.number_field :height %>
+    </p>
+
+    <p>
+      <%= form.label :depth %>
+      <%= form.number_field :depth %>
+    </p>
+
+    <p>
+      <%= form.label :sku %>
+      <%= form.text_field :sku %>
+    </p>
+
+    <p>
+      <%= form.label :supplier_id %>
+      <%= form.collection_select :supplier_id, @suppliers, :id, :brand_name %>
+    </p>
+
+    <div class="btn--controls">
+      <%= form.submit "Enviar", class: "btn btn-primary" %>
+      <%= link_to 'Voltar', root_path, class: "btn btn-secondary" %>
+    </div>
+  <% end %>
+</section>

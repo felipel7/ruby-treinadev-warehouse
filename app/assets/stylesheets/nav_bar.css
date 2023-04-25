@@ -41,6 +41,7 @@
   align-items: center;
 }
 
-.nav__links a {
+.nav__links a,
+.nav__links button {
   margin-left: 1rem;
 }

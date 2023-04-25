@@ -19,6 +19,15 @@
           <li class="nav__item"><%= link_to 'Fornecedores', suppliers_path %></li>
           <li class="nav__item"><%= link_to 'Modelos de Produtos', product_models_path %></li>
         </menu>
+
+        <div class="nav__links">
+          <% if user_signed_in? %>
+            <p><%= current_user.email %></p>
+            <%= button_to 'Sair', destroy_user_session_path, class: "btn logout", method: :delete %>
+          <% else %>
+            <%= link_to 'Entrar', new_user_session_path, class: "btn login" %>
+          <% end %>
+        </div>
       </nav>
     </header>
 

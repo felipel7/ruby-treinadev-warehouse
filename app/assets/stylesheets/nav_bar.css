@@ -35,3 +35,12 @@
   border-bottom: 1px solid #111;
   height: calc(100% - 1px);
 }
+
+.nav__links {
+  display: flex;
+  align-items: center;
+}
+
+.nav__links a {
+  margin-left: 1rem;
+}

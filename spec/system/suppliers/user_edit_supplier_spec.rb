@@ -4,8 +4,8 @@ describe "Supplier edit" do
   it "should display form when clicked" do
     supplier = Supplier.create!(
       corporate_name: "ACME", brand_name: "ACME Corporation",
-      registration_number: "12345678901234", full_address: "123 Main St",
-      full_address: "Av. Main Street", city: "Curitiba",
+      registration_number: "12345678901234",
+      full_address: "Av. Main Street, 123", city: "Curitiba",
       state: "PR", email: "example@acme.com",
     )
 
@@ -17,7 +17,7 @@ describe "Supplier edit" do
     expect(page).to have_field("Razão social", with: "ACME")
     expect(page).to have_field("Nome fantasia", with: "ACME Corporation")
     expect(page).to have_field("CNPJ", with: "12345678901234")
-    expect(page).to have_field("Endereço", with: "Av. Main Street")
+    expect(page).to have_field("Endereço", with: "Av. Main Street, 123")
     expect(page).to have_field("Cidade", with: "Curitiba")
     expect(page).to have_field("Estado", with: "PR")
     expect(page).to have_field("E-mail", with: "example@acme.com")
@@ -26,8 +26,8 @@ describe "Supplier edit" do
   it "should successfully update the supplier information" do
     supplier = Supplier.create!(
       corporate_name: "ACME", brand_name: "ACME Corporation",
-      registration_number: "12345678901234", full_address: "123 Main St",
-      full_address: "Av. Main Street", city: "Curitiba",
+      registration_number: "12345678901234",
+      full_address: "Av. Main Street, 123", city: "Curitiba",
       state: "PR", email: "example@acme.com",
     )
 
@@ -49,8 +49,8 @@ describe "Supplier edit" do
   it "should prevent editing fields with empty values" do
     supplier = Supplier.create!(
       corporate_name: "ACME", brand_name: "ACME Corporation",
-      registration_number: "12345678901234", full_address: "123 Main St",
-      full_address: "Av. Main Street", city: "Curitiba",
+      registration_number: "12345678901234",
+      full_address: "Av. Main Street, 123", city: "Curitiba",
       state: "PR", email: "example@acme.com",
     )
 

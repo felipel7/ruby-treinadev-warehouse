@@ -13,8 +13,8 @@ describe "Product view" do
   it "should create and display new products" do
     supplier = Supplier.create!(
       corporate_name: "Samsung", brand_name: "Samsung Corporation",
-      registration_number: "12345678901234", full_address: "123 Main St",
-      full_address: "Av. Main Street", city: "Curitiba",
+      registration_number: "12345678901234",
+      full_address: "Av. Main Street, 123", city: "Curitiba",
       state: "PR", email: "example@acme.com",
     )
 

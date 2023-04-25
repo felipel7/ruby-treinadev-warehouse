@@ -15,7 +15,8 @@ class ProductModelsController < ApplicationController
       flash[:notice] = "Modelo de produto cadastrado com sucesso."
       redirect_to @product_model # => show
     else
-      flash[:alert] = "Modelo de produto não cadastrado."
+      flash.now[:alert] = "Não foi possível cadastrar o modelo de produto."
+      @suppliers = Supplier.all
       render :new
     end
   end

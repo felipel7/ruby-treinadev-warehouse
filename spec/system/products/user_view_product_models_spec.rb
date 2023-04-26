@@ -1,7 +1,19 @@
 require "rails_helper"
 
 describe "Product view" do
-  it "should redirect to products page when clicked" do
+  it "should not be visible when user is not authenticated" do
+    visit root_path
+    within "nav" do
+      click_on "Modelos de Produtos"
+    end
+
+    expect(current_path).to eq new_user_session_path
+  end
+
+  it "should redirect to the products page when the link is clicked" do
+    user = User.create!(name: "Maria", email: "maria@email.com", password: "123123")
+
+    login_as(user)
     visit root_path
     within "nav" do
       click_on "Modelos de Produtos"
@@ -10,7 +22,9 @@ describe "Product view" do
     expect(current_path).to eq product_models_path
   end
 
-  it "should create and display new products" do
+  it "should allow users to create and display new products" do
+    user = User.create!(name: "Maria", email: "maria@email.com", password: "123123")
+
     supplier = Supplier.create!(
       corporate_name: "Samsung", brand_name: "Samsung Corporation",
       registration_number: "12345678901234",
@@ -38,6 +52,7 @@ describe "Product view" do
       supplier: supplier,
     )
 
+    login_as(user)
     visit root_path
     within "nav" do
       click_on "Modelos de Produtos"
@@ -50,9 +65,14 @@ describe "Product view" do
     expect(page).to have_content "SOU71-SAMSU-NOIZ77"
   end
 
-  it "should display a default message when there are no products" do
+  it "should display a default message when there are no products to show" do
+    user = User.create!(name: "Maria", email: "maria@email.com", password: "123123")
+
+    login_as(user)
     visit root_path
-    click_on "Modelos de Produtos"
+    within "nav" do
+      click_on "Modelos de Produtos"
+    end
 
     expect(page).to have_content "Nenhum modelo de produto cadastrado."
   end

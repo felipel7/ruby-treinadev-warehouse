@@ -1,7 +1,9 @@
 require "rails_helper"
 
-describe "Product form" do
-  it "should submits the form successfully" do
+describe "Product form submission" do
+  it "should successfully submit the form" do
+    user = User.create!(name: "Maria", email: "maria@email.com", password: "123123")
+
     supplier = Supplier.create!(
       corporate_name: "Samsung", brand_name: "Samsung Corporation",
       registration_number: "12345678901234", full_address: "123 Main St",
@@ -16,8 +18,12 @@ describe "Product form" do
       state: "RJ", email: "example@lg.com",
     )
 
+    login_as(user)
     visit root_path
-    click_on "Modelos de Produtos"
+    within "nav" do
+      click_on "Modelos de Produtos"
+    end
+
     click_on "Cadastrar novo"
     fill_in "Nome", with: "TV 40 polegadas"
     fill_in "Peso", with: 10_000
@@ -36,7 +42,9 @@ describe "Product form" do
     expect(page).to have_content("Peso: 10000g")
   end
 
-  it "should not be able to register a new product if any field is empty" do
+  it "should validate required fields for product registration" do
+    user = User.create!(name: "Maria", email: "maria@email.com", password: "123123")
+
     supplier = Supplier.create!(
       corporate_name: "Samsung", brand_name: "Samsung Corporation",
       registration_number: "12345678901234", full_address: "123 Main St",
@@ -51,8 +59,11 @@ describe "Product form" do
       state: "RJ", email: "example@lg.com",
     )
 
+    login_as(user)
     visit root_path
-    click_on "Modelos de Produtos"
+    within "nav" do
+      click_on "Modelos de Produtos"
+    end
     click_on "Cadastrar novo"
     fill_in "Nome", with: ""
     fill_in "Peso", with: ""

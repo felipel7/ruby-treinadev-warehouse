@@ -38,6 +38,8 @@ describe "Order form" do
       description: "Galpão do Rio de janeiro",
     )
 
+    allow(SecureRandom).to receive(:alphanumeric).and_return("12345678")
+    # allow(SecureRandom).to receive(:alphanumeric).with(8).and_return("12345678")
     login_as(user)
     visit root_path
     click_on "Registrar Pedido"
@@ -47,6 +49,7 @@ describe "Order form" do
     click_on "Gravar"
 
     expect(page).to have_content "Pedido registrado com sucesso."
+    expect(page).to have_content "Pedido - 12345678"
     expect(page).to have_content "Galpão Destino: GRU - Aeroporto SP"
     expect(page).to have_content "Fornecedor: Samsung"
     expect(page).to have_content "Usuário responsável: Maria - maria@email.com"

@@ -1,0 +1,22 @@
+<section>
+  <h2>Registrar pedido</h2>
+
+  <%= form_with(model: @order, html: { class: "form" })  do |form| %>
+    <p>
+      <%= form.label :warehouse_id, 'Galpão Destino' %>
+      <%= form.collection_select :warehouse_id, @warehouses, :id, :name %>
+    </p>
+
+    <p>
+      <%= form.label :supplier_id, 'Fornecedor' %>
+      <%= form.collection_select :supplier_id, @suppliers, :id, :corporate_name %>
+    </p>
+
+    <p>
+      <%= form.label :estimated_delivery_date, 'Data Prevista de Entrega' %>
+      <%= form.date_field :estimated_delivery_date %>
+    </p>
+
+    <%= button_tag 'Gravar', type: 'submit', class: "btn btn-primary" %>
+  <% end %>
+</section>

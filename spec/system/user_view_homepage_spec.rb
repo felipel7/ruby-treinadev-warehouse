@@ -9,6 +9,7 @@ describe "Home screen" do
 
     # Assert
     expect(page).to have_content("Galpões & Estoque")
+    expect(page).to have_link("Galpões & Estoque", href: root_path)
   end
 
   it "should display registered warehouses" do

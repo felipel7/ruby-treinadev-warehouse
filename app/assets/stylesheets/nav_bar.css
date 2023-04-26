@@ -45,3 +45,8 @@
 .nav__links button {
   margin-left: 1rem;
 }
+
+.nav__title a {
+  all: unset;
+  cursor: pointer;
+}

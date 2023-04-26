@@ -12,8 +12,12 @@
   <body>
     <header class="full-bleed">
       <nav class="nav">
-        <h1>Galpões & <br />
-          Estoque</h1>
+        <h1 class="nav__title">
+          <%= link_to root_path do %>
+            Galpões & <br />
+            Estoque
+          <% end %>
+        </h1>
         <menu class="nav__menu">
           <li class="nav__item"><%= link_to 'Galpões', root_path %></li>
           <li class="nav__item"><%= link_to 'Fornecedores', suppliers_path %></li>

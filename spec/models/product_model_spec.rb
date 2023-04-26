@@ -1,8 +1,6 @@
 require "rails_helper"
 
 RSpec.describe ProductModel, type: :model do
-  # pending "add some examples to (or delete) #{__FILE__}"
-
   describe "#valid?" do
     it "name is mandatory" do
       supplier = Supplier.create!(
@@ -25,6 +23,19 @@ RSpec.describe ProductModel, type: :model do
       result = product.valid?
 
       expect(result).to eq false
+    end
+  end
+
+  describe "#full_description" do
+    it "should display the name and code" do
+      warehouse = Warehouse.new(
+        name: "Galpão Curitiba",
+        code: "CWB",
+      )
+
+      result = warehouse.full_description
+
+      expect(result).to eq("CWB - Galpão Curitiba")
     end
   end
 end

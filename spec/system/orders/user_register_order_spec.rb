@@ -1,6 +1,6 @@
 require "rails_helper"
 
-describe "User register an order" do
+describe "Order form" do
   it "should create the order successfully" do
     user = User.create!(name: "Maria", email: "maria@email.com", password: "123123")
 
@@ -40,17 +40,25 @@ describe "User register an order" do
 
     login_as(user)
     visit root_path
-    click_on "Registrar pedido"
+    click_on "Registrar Pedido"
     select first_warehouse.name, from: "Galpão Destino"
     select first_supplier.corporate_name, from: "Fornecedor"
-    fill_in "Data Prevista", with: "20/12/2022"
+    fill_in "Data Prevista", with: "05/05/2023"
     click_on "Gravar"
 
     expect(page).to have_content "Pedido registrado com sucesso."
     expect(page).to have_content "Galpão Destino: Aeroporto SP"
     expect(page).to have_content "Fornecedor: Samsung"
     expect(page).to have_content "Usuário responsável: Maria <maria@email.com>"
+    expect(page).to have_content "Data Prevista de Entrega: 05/05/2023"
     expect(page).not_to have_content "Galpão Rio de janeiro"
     expect(page).not_to have_content "LG do Brasil LTDA"
+  end
+
+  it "should only create an order for authenticated users" do
+    visit root_path
+    click_on "Registrar Pedido"
+
+    expect(current_path).to eq new_user_session_path
   end
 end

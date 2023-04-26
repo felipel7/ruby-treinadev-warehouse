@@ -4,16 +4,16 @@ describe "Product form submission" do
   it "should successfully submit the form" do
     user = User.create!(name: "Maria", email: "maria@email.com", password: "123123")
 
-    supplier = Supplier.create!(
+    first_supplier = Supplier.create!(
       corporate_name: "Samsung", brand_name: "Samsung Corporation",
-      registration_number: "12345678901234", full_address: "123 Main St",
+      registration_number: "12345678901234",
       full_address: "Av. Main Street", city: "Curitiba",
       state: "PR", email: "example@samsung.com",
     )
 
     second_supplier = Supplier.create!(
       corporate_name: "LG", brand_name: "LG do Brasil LTDA",
-      registration_number: "12312312312312", full_address: "121 Main St",
+      registration_number: "12312312312312",
       full_address: "Av. Main Street", city: "Rio de Janeiro",
       state: "RJ", email: "example@lg.com",
     )
@@ -45,16 +45,16 @@ describe "Product form submission" do
   it "should validate required fields for product registration" do
     user = User.create!(name: "Maria", email: "maria@email.com", password: "123123")
 
-    supplier = Supplier.create!(
+    first_supplier = Supplier.create!(
       corporate_name: "Samsung", brand_name: "Samsung Corporation",
-      registration_number: "12345678901234", full_address: "123 Main St",
+      registration_number: "12345678901234",
       full_address: "Av. Main Street", city: "Curitiba",
       state: "PR", email: "example@samsung.com",
     )
 
     second_supplier = Supplier.create!(
       corporate_name: "LG", brand_name: "LG do Brasil LTDA",
-      registration_number: "12312312312312", full_address: "121 Main St",
+      registration_number: "12312312312312",
       full_address: "Av. Main Street", city: "Rio de Janeiro",
       state: "RJ", email: "example@lg.com",
     )

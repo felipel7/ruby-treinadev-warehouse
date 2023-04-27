@@ -5,7 +5,7 @@ describe "Warehouse edit" do
     warehouse = Warehouse.create!(
       name: "Maceio", code: "MCZ",
       city: "Maceio", area: 50_000,
-      address: "Av. Main Street", cep: "300000-000",
+      address: "Av. Main Street", cep: "30000-000",
       description: "Galpão de Maceio",
     )
 
@@ -18,7 +18,7 @@ describe "Warehouse edit" do
     expect(page).to have_field("Código", with: "MCZ")
     expect(page).to have_field("Endereço", with: "Av. Main Street")
     expect(page).to have_field("Cidade", with: "Maceio")
-    expect(page).to have_field("CEP", with: "300000-000")
+    expect(page).to have_field("CEP", with: "30000-000")
     expect(page).to have_field("Área", with: 50_000)
   end
 
@@ -26,7 +26,7 @@ describe "Warehouse edit" do
     warehouse = Warehouse.create!(
       name: "Maceio", code: "MCZ",
       city: "Maceio", area: 50_000,
-      address: "Av. Main Street", cep: "300000-000",
+      address: "Av. Main Street", cep: "30000-000",
       description: "Galpão de Maceio",
     )
 
@@ -52,7 +52,7 @@ describe "Warehouse edit" do
     warehouse = Warehouse.create!(
       name: "Maceio", code: "MCZ",
       city: "Maceio", area: 50_000,
-      address: "Av. Main Street", cep: "300000-000",
+      address: "Av. Main Street", cep: "30000-000",
       description: "Galpão de Maceio",
     )
 

@@ -55,4 +55,41 @@ describe "Warehouse form" do
     expect(page).to have_content "Nome não pode ficar em branco"
     expect(page).to have_content "Código não possui o tamanho esperado (3 caracteres)"
   end
+
+  it "should not be able to register a new warehouse if the name is already in use" do
+    Warehouse.create!(
+      name: "Rio de Janeiro", code: "SDU",
+      city: "Rio de janeiro", area: 32_000,
+      address: "Avenida do Museu do Amanhã, 1000", cep: "21000-000",
+      description: "Galpão da zona portuária do Rio",
+    )
+
+    visit root_path
+    click_on "Cadastrar Galpão"
+    fill_in "Nome", with: "Rio de Janeiro"
+    fill_in "Descrição", with: "Galpão da zona portuária do Rio"
+    fill_in "Código", with: "SDU"
+    fill_in "Endereço", with: "Avenida do Museu do Amanhã, 1000"
+    fill_in "Cidade", with: "Rio de Janeiro"
+    fill_in "CEP", with: "21000-000"
+    fill_in "Área", with: "32000"
+    click_on "Enviar"
+
+    expect(page).to have_content("Nome já está em uso")
+  end
+
+  it "should not be able to register a new warehouse if the CEP format is incorrect" do
+    visit root_path
+    click_on "Cadastrar Galpão"
+    fill_in "Nome", with: "Rio de Janeiro"
+    fill_in "Descrição", with: "Galpão da zona portuária do Rio"
+    fill_in "Código", with: "SDU"
+    fill_in "Endereço", with: "Avenida do Museu do Amanhã, 1000"
+    fill_in "Cidade", with: "Rio de Janeiro"
+    fill_in "CEP", with: "210001-000"
+    fill_in "Área", with: "32000"
+    click_on "Enviar"
+
+    expect(page).to have_content("CEP deve ser neste formato: 00000-000")
+  end
 end

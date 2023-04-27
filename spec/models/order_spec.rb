@@ -8,7 +8,7 @@ RSpec.describe Order, type: :model do
       warehouse = Warehouse.create!(
         name: "Maceio", code: "MCZ",
         city: "Maceio", area: 50_000,
-        address: "Av. Main Street", cep: "300000-000",
+        address: "Av. Main Street", cep: "30000-000",
         description: "Galpão de Maceio",
       )
 
@@ -37,7 +37,7 @@ RSpec.describe Order, type: :model do
       warehouse = Warehouse.create!(
         name: "Maceio", code: "MCZ",
         city: "Maceio", area: 50_000,
-        address: "Av. Main Street", cep: "300000-000",
+        address: "Av. Main Street", cep: "30000-000",
         description: "Galpão de Maceio",
       )
 
@@ -91,7 +91,7 @@ RSpec.describe Order, type: :model do
       warehouse = Warehouse.create!(
         name: "Maceio", code: "MCZ",
         city: "Maceio", area: 50_000,
-        address: "Av. Main Street", cep: "300000-000",
+        address: "Av. Main Street", cep: "30000-000",
         description: "Galpão de Maceio",
       )
 
@@ -118,7 +118,7 @@ RSpec.describe Order, type: :model do
       warehouse = Warehouse.create!(
         name: "Maceio", code: "MCZ",
         city: "Maceio", area: 50_000,
-        address: "Av. Main Street", cep: "300000-000",
+        address: "Av. Main Street", cep: "30000-000",
         description: "Galpão de Maceio",
       )
 

@@ -8,7 +8,7 @@ RSpec.describe Warehouse, type: :model do
         warehouse = Warehouse.new(
           name: "", code: "SDU",
           city: "Rio de Janeiro", area: 60_000,
-          address: "Av. Main Street", cep: "200000-000",
+          address: "Av. Main Street", cep: "20000-000",
           description: "Galpão do Rio",
         )
 
@@ -21,7 +21,7 @@ RSpec.describe Warehouse, type: :model do
         warehouse = Warehouse.new(
           name: "Rio", code: "",
           city: "Rio de Janeiro", area: 60_000,
-          address: "Av. Main Street", cep: "200000-000",
+          address: "Av. Main Street", cep: "20000-000",
           description: "Galpão do Rio",
         )
 
@@ -34,7 +34,7 @@ RSpec.describe Warehouse, type: :model do
         warehouse = Warehouse.new(
           name: "Rio", code: "SDU",
           city: "Rio de Janeiro", area: 60_000,
-          address: "", cep: "200000-000",
+          address: "", cep: "20000-000",
           description: "Galpão do Rio",
         )
 
@@ -48,7 +48,7 @@ RSpec.describe Warehouse, type: :model do
       warehouse = Warehouse.new(
         name: "Rio", code: "SDU",
         city: "Rio de Janeiro", area: 60_000,
-        address: "Av. Main Street", cep: "200000-000",
+        address: "Av. Main Street", cep: "20000-000",
         description: "Galpão do Rio",
       )
 

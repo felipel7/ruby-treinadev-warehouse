@@ -5,7 +5,7 @@ describe "Delete Warehouse" do
     warehouse = Warehouse.create!(
       name: "Maceio", code: "MCZ",
       city: "Maceio", area: 50_000,
-      address: "Av. Main Street", cep: "300000-000",
+      address: "Av. Main Street", cep: "30000-000",
       description: "Galpão de Maceio",
     )
 
@@ -23,14 +23,14 @@ describe "Delete Warehouse" do
     first_warehouse = Warehouse.create!(
       name: "Maceio", code: "MCZ",
       city: "Maceio", area: 50_000,
-      address: "Av. Main Street", cep: "300000-000",
+      address: "Av. Main Street", cep: "30000-000",
       description: "Galpão de Maceio",
     )
 
     second_warehouse = Warehouse.create!(
       name: "Rio", code: "SDU",
       city: "Rio de janeiro", area: 20_000,
-      address: "Av. Main Street", cep: "120000-000",
+      address: "Av. Main Street", cep: "12000-000",
       description: "Galpão do Rio",
     )
 

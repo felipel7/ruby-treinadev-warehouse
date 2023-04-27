@@ -1,3 +1,12 @@
+<% if @warehouse.errors.any? %>
+  <p>Verifique os erros abaixo:</p>
+  <ul class="list--error-messages">
+    <% @warehouse.errors.full_messages.each do |msg|  %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <%= form_with(model: @warehouse, html: { id: "warehouse-form", class: "form" }) do |form| %>
   <p>
     <%= form.label :name %>
@@ -26,7 +35,7 @@
 
   <p>
     <%= form.label :cep %>
-    <%= form.text_field :cep %>
+    <%= form.text_field :cep, id: "cep", maxlength: '9', placeholder: '00000-000' %>
   </p>
 
   <p>
@@ -36,3 +45,14 @@
 
   <%= button_tag "Enviar", type: "submit", class: "btn btn-primary" %>
 <% end %>
+
+<script>
+  const el = document.getElementById("cep")
+  el.addEventListener("keypress", e => {
+    length = e.target.value.length
+
+    if(length === 5) {
+      el.value += '-'
+    }
+  })
+</script>

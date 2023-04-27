@@ -17,14 +17,14 @@ describe "Home screen" do
     Warehouse.create(
       name: "Rio", code: "SDU",
       city: "Rio de Janeiro", area: 60_000,
-      address: "Av. Main Street", cep: "200000-000",
+      address: "Av. Main Street", cep: "20000-000",
       description: "Galpão do Rio",
     )
     # Warehouse 2
     Warehouse.create(
       name: "Maceio", code: "MCZ",
       city: "Maceio", area: 50_000,
-      address: "Av. Main Street", cep: "300000-000",
+      address: "Av. Main Street", cep: "30000-000",
       description: "Galpão de Maceio",
     )
 

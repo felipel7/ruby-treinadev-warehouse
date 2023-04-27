@@ -6,14 +6,14 @@ describe "Order form" do
 
     first_supplier = Supplier.create!(
       corporate_name: "Samsung", brand_name: "Samsung Corporation",
-      registration_number: "12345678901234",
+      registration_number: "22.222.222/2222-2",
       full_address: "Av. Main Street", city: "Curitiba",
       state: "PR", email: "example@samsung.com",
     )
 
     second_supplier = Supplier.create!(
       corporate_name: "LG", brand_name: "LG do Brasil LTDA",
-      registration_number: "12312312312312",
+      registration_number: "22.222.222/2222-3",
       full_address: "Av. Main Street", city: "Rio de Janeiro",
       state: "RJ", email: "example@lg.com",
     )
@@ -63,7 +63,7 @@ describe "Order form" do
 
     first_supplier = Supplier.create!(
       corporate_name: "Samsung", brand_name: "Samsung Corporation",
-      registration_number: "12345678901234",
+      registration_number: "22.222.222/2222-2",
       full_address: "Av. Main Street", city: "Curitiba",
       state: "PR", email: "example@samsung.com",
     )

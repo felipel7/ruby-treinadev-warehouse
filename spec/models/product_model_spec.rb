@@ -5,7 +5,7 @@ RSpec.describe ProductModel, type: :model do
     it "name is mandatory" do
       supplier = Supplier.create!(
         corporate_name: "Samsung", brand_name: "Samsung Corporation",
-        registration_number: "12345678901234",
+        registration_number: "22.222.222/2222-2",
         full_address: "Av. Main Street, 123", city: "Curitiba",
         state: "PR", email: "example@samsung.com",
       )

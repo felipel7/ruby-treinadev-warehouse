@@ -14,7 +14,7 @@ RSpec.describe Order, type: :model do
 
       supplier = Supplier.create!(
         corporate_name: "ACME", brand_name: "ACME Corporation",
-        registration_number: "12345678901234",
+        registration_number: "22.222.222/2222-2",
         full_address: "Av. Main Street, 123", city: "Curitiba",
         state: "PR", email: "example@acme.com",
       )
@@ -43,7 +43,7 @@ RSpec.describe Order, type: :model do
 
       supplier = Supplier.create!(
         corporate_name: "ACME", brand_name: "ACME Corporation",
-        registration_number: "12345678901234",
+        registration_number: "22.222.222/2222-2",
         full_address: "Av. Main Street, 123", city: "Curitiba",
         state: "PR", email: "example@acme.com",
       )
@@ -97,7 +97,7 @@ RSpec.describe Order, type: :model do
 
       supplier = Supplier.create!(
         corporate_name: "ACME", brand_name: "ACME Corporation",
-        registration_number: "12345678901234",
+        registration_number: "22.222.222/2222-2",
         full_address: "Av. Main Street, 123", city: "Curitiba",
         state: "PR", email: "example@acme.com",
       )
@@ -124,7 +124,7 @@ RSpec.describe Order, type: :model do
 
       supplier = Supplier.create!(
         corporate_name: "ACME", brand_name: "ACME Corporation",
-        registration_number: "12345678901234",
+        registration_number: "22.222.222/2222-2",
         full_address: "Av. Main Street, 123", city: "Curitiba",
         state: "PR", email: "example@acme.com",
       )

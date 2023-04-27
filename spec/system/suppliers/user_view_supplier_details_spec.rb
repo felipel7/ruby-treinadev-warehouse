@@ -5,7 +5,7 @@ describe "Supplier details" do
     supplier = Supplier.create!(
       corporate_name: "ACME LTDA",
       brand_name: "ACME",
-      registration_number: "3333333333333",
+      registration_number: "22.222.222/2222-2",
       full_address: "Av das Palmas, 100",
       city: "Bauru",
       state: "SP",
@@ -18,7 +18,7 @@ describe "Supplier details" do
 
     expect(page).to have_content "ACME"
     expect(page).to have_content "ACME LTDA"
-    expect(page).to have_content "3333333333333"
+    expect(page).to have_content "22.222.222/2222-2"
     expect(page).to have_content "Av das Palmas, 100"
     expect(page).to have_content "Bauru"
     expect(page).to have_content "SP"
@@ -29,7 +29,7 @@ describe "Supplier details" do
     supplier = Supplier.create!(
       corporate_name: "ACME",
       brand_name: "ACME LTDA",
-      registration_number: "333333333333",
+      registration_number: "22.222.222/2222-2",
       full_address: "Av das Palmas, 100",
       city: "Bauru",
       state: "SP",

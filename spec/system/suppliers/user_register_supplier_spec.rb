@@ -21,7 +21,7 @@ describe "Supplier form" do
     click_on "Cadastrar novo fornecedor"
     fill_in "Razão social", with: "ACME"
     fill_in "Nome fantasia", with: "ACME Corporation"
-    fill_in "CNPJ", with: "12345678901234"
+    fill_in "CNPJ", with: "22.222.222/2222-2"
     fill_in "Endereço", with: "123 Main St"
     fill_in "Cidade", with: "Curitiba"
     fill_in "Estado", with: "PR"

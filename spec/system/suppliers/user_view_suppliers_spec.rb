@@ -14,7 +14,7 @@ describe "Suppliers view" do
     first_supplier = Supplier.create!(
       corporate_name: "ACME",
       brand_name: "ACME LTDA",
-      registration_number: "3333333333333",
+      registration_number: "22.222.222/2222-2",
       full_address: "Av das Palmas, 100",
       city: "Bauru",
       state: "SP",
@@ -24,7 +24,7 @@ describe "Suppliers view" do
     second_supplier = Supplier.create!(
       corporate_name: "Spark",
       brand_name: "Spark Industries Brasil LTDA",
-      registration_number: "4444433333333",
+      registration_number: "22.222.222/2222-3",
       full_address: "Av Torres, 200",
       city: "Teresina",
       state: "PI",

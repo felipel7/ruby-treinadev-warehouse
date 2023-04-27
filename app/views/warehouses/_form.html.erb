@@ -35,7 +35,7 @@
 
   <p>
     <%= form.label :cep %>
-    <%= form.text_field :cep, id: "cep", maxlength: '9', placeholder: '00000-000' %>
+    <%= form.text_field :cep, class: "cep-input", maxlength: '9', placeholder: '00000-000' %>
   </p>
 
   <p>
@@ -47,7 +47,7 @@
 <% end %>
 
 <script>
-  const el = document.getElementById("cep")
+  const el = document.querySelector(".cep-input")
   el.addEventListener("keypress", e => {
     length = e.target.value.length
 

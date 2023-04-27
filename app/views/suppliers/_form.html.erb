@@ -1,3 +1,13 @@
+<% if @supplier.errors.any? %>
+  <p>Verifique os erros abaixo:</p>
+
+  <ul>
+    <% @supplier.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <%= form_with(model: @supplier, html: { class: "form" }) do |form| %>
   <p>
     <%= form.label :corporate_name %>
@@ -11,7 +21,7 @@
 
   <p>
     <%= form.label :registration_number %>
-    <%= form.text_field :registration_number %>
+    <%= form.text_field :registration_number, class: "cnpj-input", placeholder: "XX.XXX.XXX/0001-X", maxlength: '17' %>
   </p>
 
   <p>
@@ -39,3 +49,32 @@
     <%= link_to 'Voltar', root_path, class: "btn btn-secondary" %>
   </div>
 <% end %>
+
+<script>
+  const inputEl = document.querySelector(".cnpj-input")
+
+  document.addEventListener("DOMContentLoaded", () => {
+    inputEl.value = inputEl.value.substr(0, 17)
+  });
+
+  inputEl.addEventListener("keypress", e => {
+    length = e.target.value.length
+
+    switch (length) {
+      case 2:
+        inputEl.value += '.'
+        break;
+      case 6:
+        inputEl.value += '.'
+        break;
+      case 10:
+        inputEl.value += '/'
+        break;
+      case 15:
+        inputEl.value += '-'
+        break;
+      default:
+        break;
+    }
+  })
+</script>

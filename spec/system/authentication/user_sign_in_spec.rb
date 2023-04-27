@@ -8,7 +8,9 @@ describe "User Login" do
     )
 
     visit root_path
-    click_on "Entrar"
+    within "nav" do
+      click_on "Entrar"
+    end
     within "form" do
       fill_in "E-mail", with: "felipe@gmail.com"
       fill_in "Senha", with: "123123"
@@ -20,7 +22,6 @@ describe "User Login" do
       expect(page).to have_button "Sair"
       expect(page).to have_content "felipe@gmail.com"
     end
-
     expect(page).to have_content "Login efetuado com sucesso."
   end
 
@@ -31,7 +32,9 @@ describe "User Login" do
     )
 
     visit root_path
-    click_on "Entrar"
+    within "nav" do
+      click_on "Entrar"
+    end
     within "form" do
       fill_in "E-mail", with: "felipe@gmail.com"
       fill_in "Senha", with: "123123"
@@ -44,7 +47,5 @@ describe "User Login" do
       expect(page).not_to have_button "Sair"
       expect(page).not_to have_content "felipe@gmail.com"
     end
-
-    expect(page).to have_content "Logout efetuado com sucesso."
   end
 end

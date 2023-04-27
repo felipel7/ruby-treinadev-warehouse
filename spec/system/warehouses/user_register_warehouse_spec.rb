@@ -2,6 +2,9 @@ require "rails_helper"
 
 describe "Warehouse form" do
   it "should redirects user to create a new form when clicked" do
+    user = User.create!(name: "Maria", email: "maria@email.com", password: "123123")
+
+    login_as(user)
     visit root_path
     click_on "Cadastrar Galpão"
 
@@ -15,6 +18,9 @@ describe "Warehouse form" do
   end
 
   it "should submits the form successfully" do
+    user = User.create!(name: "Maria", email: "maria@email.com", password: "123123")
+
+    login_as(user)
     visit root_path
     click_on "Cadastrar Galpão"
     fill_in "Nome", with: "Rio de Janeiro"
@@ -34,6 +40,9 @@ describe "Warehouse form" do
   end
 
   it "should not be able to register a new warehouse if any field is empty" do
+    user = User.create!(name: "Maria", email: "maria@email.com", password: "123123")
+
+    login_as(user)
     visit root_path
     click_on "Cadastrar Galpão"
     fill_in "Nome", with: ""
@@ -57,6 +66,8 @@ describe "Warehouse form" do
   end
 
   it "should not be able to register a new warehouse if the name is already in use" do
+    user = User.create!(name: "Maria", email: "maria@email.com", password: "123123")
+
     Warehouse.create!(
       name: "Rio de Janeiro", code: "SDU",
       city: "Rio de janeiro", area: 32_000,
@@ -64,6 +75,7 @@ describe "Warehouse form" do
       description: "Galpão da zona portuária do Rio",
     )
 
+    login_as(user)
     visit root_path
     click_on "Cadastrar Galpão"
     fill_in "Nome", with: "Rio de Janeiro"
@@ -79,6 +91,9 @@ describe "Warehouse form" do
   end
 
   it "should not be able to register a new warehouse if the CEP format is incorrect" do
+    user = User.create!(name: "Maria", email: "maria@email.com", password: "123123")
+
+    login_as(user)
     visit root_path
     click_on "Cadastrar Galpão"
     fill_in "Nome", with: "Rio de Janeiro"

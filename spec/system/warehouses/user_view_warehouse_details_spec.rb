@@ -2,6 +2,8 @@ require "rails_helper"
 
 describe "Warehouse details" do
   it "should display warehouse details" do
+    user = User.create!(name: "Maria", email: "maria@email.com", password: "123123")
+
     Warehouse.create(
       name: "Aeroporto SP",
       code: "GRU",
@@ -12,6 +14,7 @@ describe "Warehouse details" do
       description: "Galpão destinado para cargas internacionais",
     )
 
+    login_as(user)
     visit root_path
     click_on("Aeroporto SP")
 
@@ -24,6 +27,8 @@ describe "Warehouse details" do
   end
 
   it "should have a link to redirect to the home page" do
+    user = User.create!(name: "Maria", email: "maria@email.com", password: "123123")
+
     Warehouse.create(
       name: "Aeroporto SP",
       code: "GRU",
@@ -34,6 +39,7 @@ describe "Warehouse details" do
       description: "Galpão destinado para cargas internacionais",
     )
 
+    login_as(user)
     visit root_path
     click_on("Aeroporto SP")
     click_on("Voltar")

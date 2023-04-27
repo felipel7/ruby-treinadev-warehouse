@@ -3,7 +3,9 @@ require "rails_helper"
 describe "User Sign Up" do
   it "should create an account successfully" do
     visit root_path
-    click_on "Entrar"
+    within "nav" do
+      click_on "Entrar"
+    end
     click_on "Criar uma conta"
     fill_in "Nome", with: "Maria"
     fill_in "E-mail", with: "maria@gmail.com"

@@ -2,6 +2,8 @@ require "rails_helper"
 
 describe "Delete Warehouse" do
   it "should properly delete registered warehouse" do
+    user = User.create!(name: "Maria", email: "maria@email.com", password: "123123")
+
     warehouse = Warehouse.create!(
       name: "Maceio", code: "MCZ",
       city: "Maceio", area: 50_000,
@@ -9,6 +11,7 @@ describe "Delete Warehouse" do
       description: "Galpão de Maceio",
     )
 
+    login_as(user)
     visit root_path
     click_on "Maceio"
     click_on "Remover"
@@ -20,6 +23,8 @@ describe "Delete Warehouse" do
   end
 
   it "should not delete all registered warehouses" do
+    user = User.create!(name: "Maria", email: "maria@email.com", password: "123123")
+
     first_warehouse = Warehouse.create!(
       name: "Maceio", code: "MCZ",
       city: "Maceio", area: 50_000,
@@ -34,6 +39,7 @@ describe "Delete Warehouse" do
       description: "Galpão do Rio",
     )
 
+    login_as(user)
     visit root_path
     click_on "Maceio"
     click_on "Remover"

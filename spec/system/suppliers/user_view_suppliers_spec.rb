@@ -2,7 +2,10 @@ require "rails_helper"
 
 describe "Suppliers view" do
   it "should redirect to suppliers page when clicked" do
+    user = User.create!(name: "Maria", email: "maria@email.com", password: "123123")
+
     visit root_path
+    login_as(user)
     within "nav" do
       click_on "Fornecedores"
     end
@@ -11,6 +14,8 @@ describe "Suppliers view" do
   end
 
   it "should create and display new suppliers" do
+    user = User.create!(name: "Maria", email: "maria@email.com", password: "123123")
+
     first_supplier = Supplier.create!(
       corporate_name: "ACME",
       brand_name: "ACME LTDA",
@@ -32,6 +37,7 @@ describe "Suppliers view" do
     )
 
     visit root_path
+    login_as(user)
     click_on "Fornecedores"
 
     expect(page).to have_content "ACME"
@@ -41,7 +47,10 @@ describe "Suppliers view" do
   end
 
   it "should display a default message when there are no suppliers" do
+    user = User.create!(name: "Maria", email: "maria@email.com", password: "123123")
+
     visit root_path
+    login_as(user)
     click_on "Fornecedores"
 
     expect(page).to have_content "Não existem fornecedores cadastrados."

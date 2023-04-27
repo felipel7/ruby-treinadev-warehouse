@@ -2,7 +2,10 @@ require "rails_helper"
 
 describe "Supplier form" do
   it "should redirects user to create a new supplier when clicked" do
+    user = User.create!(name: "Maria", email: "maria@email.com", password: "123123")
+
     visit root_path
+    login_as(user)
     click_on "Fornecedores"
     click_on "Cadastrar novo fornecedor"
 
@@ -16,7 +19,10 @@ describe "Supplier form" do
   end
 
   it "should submits the form successfully" do
+    user = User.create!(name: "Maria", email: "maria@email.com", password: "123123")
+
     visit root_path
+    login_as(user)
     click_on "Fornecedores"
     click_on "Cadastrar novo fornecedor"
     fill_in "Razão social", with: "ACME"
@@ -34,7 +40,10 @@ describe "Supplier form" do
   end
 
   it "should not be able to register a new supplier if any field is empty" do
+    user = User.create!(name: "Maria", email: "maria@email.com", password: "123123")
+
     visit root_path
+    login_as(user)
     click_on "Fornecedores"
     click_on "Cadastrar novo fornecedor"
     fill_in "Nome fantasia", with: ""

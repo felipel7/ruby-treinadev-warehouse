@@ -2,6 +2,8 @@ require "rails_helper"
 
 describe "Supplier details" do
   it "should redirect to details page when is clicked" do
+    user = User.create!(name: "Maria", email: "maria@email.com", password: "123123")
+
     supplier = Supplier.create!(
       corporate_name: "ACME LTDA",
       brand_name: "ACME",
@@ -13,6 +15,7 @@ describe "Supplier details" do
     )
 
     visit root_path
+    login_as(user)
     click_on "Fornecedores"
     click_on "ACME"
 
@@ -26,6 +29,8 @@ describe "Supplier details" do
   end
 
   it "should redirect to home page" do
+    user = User.create!(name: "Maria", email: "maria@email.com", password: "123123")
+
     supplier = Supplier.create!(
       corporate_name: "ACME",
       brand_name: "ACME LTDA",
@@ -37,6 +42,7 @@ describe "Supplier details" do
     )
 
     visit root_path
+    login_as(user)
     click_on "Fornecedores"
     click_on "ACME"
     click_on "Voltar"

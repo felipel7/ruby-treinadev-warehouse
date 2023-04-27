@@ -2,6 +2,8 @@ require "rails_helper"
 
 describe "Warehouse edit" do
   it "should display details of a warehouse form when clicked" do
+    user = User.create!(name: "Maria", email: "maria@email.com", password: "123123")
+
     warehouse = Warehouse.create!(
       name: "Maceio", code: "MCZ",
       city: "Maceio", area: 50_000,
@@ -9,6 +11,7 @@ describe "Warehouse edit" do
       description: "Galpão de Maceio",
     )
 
+    login_as(user)
     visit root_path
     click_on "Maceio"
     click_on "Editar"
@@ -23,6 +26,8 @@ describe "Warehouse edit" do
   end
 
   it "should successfully update the warehouse information" do
+    user = User.create!(name: "Maria", email: "maria@email.com", password: "123123")
+
     warehouse = Warehouse.create!(
       name: "Maceio", code: "MCZ",
       city: "Maceio", area: 50_000,
@@ -30,6 +35,7 @@ describe "Warehouse edit" do
       description: "Galpão de Maceio",
     )
 
+    login_as(user)
     visit root_path
     click_on "Maceio"
     click_on "Editar"
@@ -49,6 +55,8 @@ describe "Warehouse edit" do
   end
 
   it "should prevent editing fields with empty values" do
+    user = User.create!(name: "Maria", email: "maria@email.com", password: "123123")
+
     warehouse = Warehouse.create!(
       name: "Maceio", code: "MCZ",
       city: "Maceio", area: 50_000,
@@ -56,6 +64,7 @@ describe "Warehouse edit" do
       description: "Galpão de Maceio",
     )
 
+    login_as(user)
     visit root_path
     click_on "Maceio"
     click_on "Editar"

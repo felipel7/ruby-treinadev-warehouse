@@ -13,6 +13,8 @@ describe "Home screen" do
   end
 
   it "should display registered warehouses" do
+    user = User.create!(name: "Maria", email: "maria@email.com", password: "123123")
+
     # Warehouse 1
     Warehouse.create(
       name: "Rio", code: "SDU",
@@ -28,6 +30,7 @@ describe "Home screen" do
       description: "Galpão de Maceio",
     )
 
+    login_as(user)
     visit root_path
 
     expect(page).not_to have_content("Não há galpões cadastrados")
@@ -44,6 +47,9 @@ describe "Home screen" do
   end
 
   it "should display a default message when there are no warehouses" do
+    user = User.create!(name: "Maria", email: "maria@email.com", password: "123123")
+
+    login_as(user)
     visit root_path
 
     expect(page).to have_content("Não há galpões cadastrados")

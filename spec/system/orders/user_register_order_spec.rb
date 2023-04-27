@@ -45,7 +45,7 @@ describe "Order form" do
     click_on "Registrar Pedido"
     select "GRU - Aeroporto SP", from: "Galpão Destino"
     select first_supplier.corporate_name, from: "Fornecedor"
-    fill_in "Data Prevista", with: "05/05/2023"
+    fill_in "Data Prevista", with: 1.day.from_now
     click_on "Gravar"
 
     expect(page).to have_content "Pedido registrado com sucesso."
@@ -53,9 +53,40 @@ describe "Order form" do
     expect(page).to have_content "Galpão Destino: GRU - Aeroporto SP"
     expect(page).to have_content "Fornecedor: Samsung"
     expect(page).to have_content "Usuário responsável: Maria - maria@email.com"
-    expect(page).to have_content "Data Prevista de Entrega: 05/05/2023"
+    expect(page).to have_content "Data Prevista de Entrega: #{1.day.from_now.strftime("%d/%m/%Y")}"
     expect(page).not_to have_content "Galpão Rio de janeiro"
     expect(page).not_to have_content "LG do Brasil LTDA"
+  end
+
+  it "should ensure estimated date is not in the past" do
+    user = User.create!(name: "Maria", email: "maria@email.com", password: "123123")
+
+    first_supplier = Supplier.create!(
+      corporate_name: "Samsung", brand_name: "Samsung Corporation",
+      registration_number: "12345678901234",
+      full_address: "Av. Main Street", city: "Curitiba",
+      state: "PR", email: "example@samsung.com",
+    )
+
+    Warehouse.create(
+      name: "Aeroporto SP",
+      code: "GRU",
+      city: "Guarulhos",
+      area: 100_000,
+      address: "Avenida do Aeroporto, 1000",
+      cep: "15000-000",
+      description: "Galpão destinado para cargas internacionais",
+    )
+
+    login_as(user)
+    visit root_path
+    click_on "Registrar Pedido"
+    select "GRU - Aeroporto SP", from: "Galpão Destino"
+    select first_supplier.corporate_name, from: "Fornecedor"
+    fill_in "Data Prevista", with: 1.day.ago
+    click_on "Gravar"
+
+    expect(page).to have_content "Data Prevista de Entrega deve ser futura."
   end
 
   it "should only create an order for authenticated users" do

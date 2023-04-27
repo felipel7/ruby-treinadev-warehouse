@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe ProductModel, type: :model do
   describe "#valid?" do
-    it "name is mandatory" do
+    it "name is required" do
       supplier = Supplier.create!(
         corporate_name: "Samsung", brand_name: "Samsung Corporation",
         registration_number: "22.222.222/2222-2",
@@ -24,18 +24,32 @@ RSpec.describe ProductModel, type: :model do
 
       expect(result).to eq false
     end
-  end
 
-  describe "#full_description" do
-    it "should display the name and code" do
-      warehouse = Warehouse.new(
-        name: "Galpão Curitiba",
-        code: "CWB",
+    it "should ensure dimensions are greater than zero" do
+      supplier = Supplier.create!(
+        corporate_name: "Samsung", brand_name: "Samsung Corporation",
+        registration_number: "22.222.222/2222-2",
+        full_address: "Av. Main Street, 123", city: "Curitiba",
+        state: "PR", email: "example@samsung.com",
       )
 
-      result = warehouse.full_description
+      product = ProductModel.new(
+        name: "test",
+        weight: 0,
+        width: -4,
+        height: -5,
+        depth: 0,
+        sku: "TV32-SAMSU-XPTO90",
+        supplier: supplier,
+      )
 
-      expect(result).to eq("CWB - Galpão Curitiba")
+      product.valid?
+      result = product.errors
+
+      expect(result[:weight]).to include(" deve ser maior que zero.")
+      expect(result[:width]).to include(" deve ser maior que zero.")
+      expect(result[:height]).to include(" deve ser maior que zero.")
+      expect(result[:depth]).to include(" deve ser maior que zero.")
     end
   end
 end

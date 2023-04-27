@@ -11,7 +11,7 @@ describe "User Login" do
     within "nav" do
       click_on "Entrar"
     end
-    within "form" do
+    within ".form" do
       fill_in "E-mail", with: "felipe@gmail.com"
       fill_in "Senha", with: "123123"
       click_on "Entrar"
@@ -35,7 +35,7 @@ describe "User Login" do
     within "nav" do
       click_on "Entrar"
     end
-    within "form" do
+    within ".form" do
       fill_in "E-mail", with: "felipe@gmail.com"
       fill_in "Senha", with: "123123"
       click_on "Entrar"

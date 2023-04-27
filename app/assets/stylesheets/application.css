@@ -38,7 +38,7 @@ main > * {
 
 @media screen and (min-width: 1024px) {
   main {
-    grid-template-columns: 1fr 900px 1fr;
+    grid-template-columns: 1fr 980px 1fr;
   }
 }
 

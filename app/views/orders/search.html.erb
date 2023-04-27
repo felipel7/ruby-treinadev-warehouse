@@ -1,0 +1,24 @@
+<section>
+  <h2>Resultados da Busca por: <%= @code %></h2>
+
+  <% if @order.present? %>
+    <p>1 pedido encontrado</p>
+    <dl>
+      <div>
+        <dt><%= Order.human_attribute_name(:code) %>:</dt>
+        <dd><%= @order.code %></dd>
+      </div>
+
+      <div>
+        <dt><%= Order.human_attribute_name(:warehouse_id) %>:</dt>
+        <dd><%= @order.warehouse.full_description %></dd>
+      </div>
+
+      <div>
+        <dt><%= Order.human_attribute_name(:supplier_id) %>:</dt>
+        <dd><%= @order.supplier.corporate_name %></dd>
+      </div>
+
+    </dl>
+  <% end %>
+</section>

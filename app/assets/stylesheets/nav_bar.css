@@ -3,7 +3,7 @@
   display: flex;
   justify-content: space-between;
   margin-inline: auto;
-  max-width: 900px;
+  max-width: 980px;
   user-select: none;
 }
 
@@ -41,12 +41,35 @@
   align-items: center;
 }
 
+.nav__title a {
+  all: unset;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
 .nav__links a,
 .nav__links button {
   margin-left: 1rem;
 }
 
-.nav__title a {
+.nav__item a {
+  white-space: nowrap;
+}
+
+.search-bar__wrapper {
+  display: flex;
+  align-items: center;
+  background: #efefef;
+  height: 40px;
+  margin-block: auto;
+}
+
+.search-bar__wrapper input {
   all: unset;
-  cursor: pointer;
+  padding: 10px 0 10px 10px;
+  max-width: 110px;
+  border-radius: 5px;
+}
+.search-bar__wrapper label {
+  display: flex;
 }

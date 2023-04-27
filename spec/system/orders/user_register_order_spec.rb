@@ -89,6 +89,38 @@ describe "Order form" do
     expect(page).to have_content "Data Prevista de Entrega deve ser futura."
   end
 
+  it "should ensure the user fill an estimated date" do
+    user = User.create!(name: "Maria", email: "maria@email.com", password: "123123")
+
+    supplier = Supplier.create!(
+      corporate_name: "Samsung", brand_name: "Samsung Corporation",
+      registration_number: "22.222.222/2222-2",
+      full_address: "Av. Main Street", city: "Curitiba",
+      state: "PR", email: "example@samsung.com",
+    )
+
+    Warehouse.create(
+      name: "Aeroporto SP",
+      code: "GRU",
+      city: "Guarulhos",
+      area: 100_000,
+      address: "Avenida do Aeroporto, 1000",
+      cep: "15000-000",
+      description: "Galpão destinado para cargas internacionais",
+    )
+
+    login_as(user)
+    visit root_path
+    click_on "Registrar Pedido"
+    select "GRU - Aeroporto SP", from: "Galpão Destino"
+    select supplier.corporate_name, from: "Fornecedor"
+    fill_in "Data Prevista", with: ""
+    click_on "Gravar"
+
+    expect(page).to have_content "Não foi possível registrar o pedido."
+    expect(page).to have_content "Data Prevista de Entrega não pode ficar em branco"
+  end
+
   it "should only create an order for authenticated users" do
     visit root_path
     click_on "Registrar Pedido"

@@ -1,6 +1,16 @@
 <section>
   <h2>Cadastrar Novo Modelo de Produto</h2>
 
+  <% if @product_model.errors.any? %>
+    <p>Verifique os erros abaixo:</p>
+
+    <ul>
+      <% @product_model.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
   <%= form_with(model: @product_model, html: { class: "form" }) do |form| %>
     <p>
       <%= form.label :name %>
@@ -29,7 +39,7 @@
 
     <p>
       <%= form.label :sku %>
-      <%= form.text_field :sku %>
+      <%= form.text_field :sku, maxlength: '20' %>
     </p>
 
     <p>

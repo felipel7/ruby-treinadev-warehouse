@@ -27,17 +27,17 @@ describe "Order index view" do
     )
 
     first_order = Order.create!(
-      user: user, warehouse: warehouse,
+      user: user, warehouse: warehouse, status: "pending",
       supplier: supplier, estimated_delivery_date: 1.day.from_now,
     )
 
     second_order = Order.create!(
-      user: another_user, warehouse: warehouse,
+      user: another_user, warehouse: warehouse, status: "delivered",
       supplier: supplier, estimated_delivery_date: 2.day.from_now,
     )
 
     third_order = Order.create!(
-      user: user, warehouse: warehouse,
+      user: user, warehouse: warehouse, status: "canceled",
       supplier: supplier, estimated_delivery_date: 3.day.from_now,
     )
 
@@ -48,6 +48,9 @@ describe "Order index view" do
     expect(page).to have_content first_order.code
     expect(page).not_to have_content second_order.code
     expect(page).to have_content third_order.code
+    expect(page).to have_content "Pendente"
+    expect(page).not_to have_content "Entregue"
+    expect(page).to have_content "Cancelado"
   end
 
   it "should see order details" do

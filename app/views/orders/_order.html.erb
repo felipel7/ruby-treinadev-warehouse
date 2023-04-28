@@ -13,4 +13,9 @@
     <dt><%= Order.human_attribute_name(:supplier_id) %>:</dt>
     <dd><%= order.supplier.corporate_name %></dd>
   </div>
+
+  <div>
+    <dt><%= Order.human_attribute_name(:status) %>:</dt>
+    <dd><%= t(order.status) %></dd>
+  </div>
 </dl>

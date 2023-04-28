@@ -55,6 +55,7 @@ describe "Order form" do
     expect(page).to have_content "Usuário responsável: Maria - maria@email.com"
     formatted_date = I18n.localize(1.day.from_now.to_date)
     expect(page).to have_content "Data Prevista de Entrega: #{formatted_date}"
+    expect(page).to have_content "Situação do Pedido: Pendente"
     expect(page).not_to have_content "Galpão Rio de janeiro"
     expect(page).not_to have_content "LG do Brasil LTDA"
   end

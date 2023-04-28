@@ -23,6 +23,11 @@
       <dt><%= Order.human_attribute_name(:estimated_delivery_date) %>:</dt>
       <dd><%= I18n.localize(@order.estimated_delivery_date) %></dd>
     </div>
+
+    <div>
+      <dt><%= Order.human_attribute_name(:status) %>:</dt>
+      <dd><%= t(@order.status) %></dd>
+    </div>
   </dl>
 
   <div class='btn--controls'>

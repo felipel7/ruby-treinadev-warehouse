@@ -1,3 +1,5 @@
+<h1>Detalhes do Pedido</h1>
+
 <section>
   <h2><%= Order.model_name.human %> - <%= @order.code %></h2>
 
@@ -22,4 +24,6 @@
       <dd><%= I18n.localize(@order.estimated_delivery_date) %></dd>
     </div>
   </dl>
+
+  <%= link_to 'Editar', edit_order_path(@order.id) %>
 </section>

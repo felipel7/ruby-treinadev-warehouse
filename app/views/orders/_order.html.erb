@@ -1,7 +1,7 @@
 <dl class="details-container__wrapper" style="margin-block: 1.5rem;">
   <div>
     <dt><%= Order.human_attribute_name(:code) %>:</dt>
-    <dd><%= order.code %></dd>
+    <dd><%= link_to order.code, order %></dd>
   </div>
 
   <div>

@@ -3,28 +3,11 @@
 
   <% if @order.errors&.any? %>
     <ul>
-      <% @order.errors.full_messages.uniq.each do |msg| %>
+      <% @order.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
     </ul>
   <% end %>
 
-  <%= form_with(model: @order, html: { class: "form" })  do |form| %>
-    <p>
-      <%= form.label :warehouse_id %>
-      <%= form.collection_select :warehouse_id, @warehouses, :id, :full_description %>
-    </p>
-
-    <p>
-      <%= form.label :supplier_id %>
-      <%= form.collection_select :supplier_id, @suppliers, :id, :corporate_name %>
-    </p>
-
-    <p>
-      <%= form.label :estimated_delivery_date %>
-      <%= form.date_field :estimated_delivery_date %>
-    </p>
-
-    <%= button_tag 'Gravar', type: 'submit', class: "btn btn-primary" %>
-  <% end %>
+  <%= render 'form' %>
 </section>

@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_order_and_check_user, only: [:show, :edit, :update]
 
   def index
     @orders = current_user.orders
@@ -27,7 +28,28 @@ class OrdersController < ApplicationController
   end
 
   def show
-    @order = Order.find(params[:id])
+    set_order_and_check_user
+  end
+
+  def edit
+    set_order_and_check_user
+
+    @warehouses = Warehouse.all
+    @suppliers = Supplier.all
+  end
+
+  def update
+    set_order_and_check_user
+
+    if @order.update(order_params)
+      flash[:notice] = "Pedido atualizado com sucesso."
+      redirect_to @order
+    else
+      @warehouses = Warehouse.all
+      @suppliers = Supplier.all
+      flash.now[:alert] = "Não foi possível atualizar o pedido."
+      render :new
+    end
   end
 
   def search
@@ -42,5 +64,14 @@ class OrdersController < ApplicationController
     params.require(:order).permit(
       :warehouse_id, :supplier_id, :estimated_delivery_date
     )
+  end
+
+  def set_order_and_check_user
+    @order = Order.find(params[:id])
+
+    if @order.user != current_user
+      flash[:alert] = "Você não possui acesso a esse pedido."
+      return redirect_to root_path
+    end
   end
 end

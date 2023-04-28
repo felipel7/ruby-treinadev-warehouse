@@ -1,2 +1,5 @@
 pt-BR:
   hello: 'Olá Mundo.'
+  found:
+    one: 'encontrado'
+    other: 'encontrados'

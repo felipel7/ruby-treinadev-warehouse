@@ -30,6 +30,13 @@
     </div>
   </dl>
 
+  <h3>Itens do Pedido</h3>
+  <ul>
+    <% @order.order_items.each do |item| %>
+      <li><%= item.quantity  %> x <%= item.product_model.name %></li>
+    <% end %>
+  </ul>
+
   <div class='btn--controls'>
     <%= link_to 'Editar', edit_order_path(@order.id), class: "btn btn-primary" %>
     <% if @order.pending? %>

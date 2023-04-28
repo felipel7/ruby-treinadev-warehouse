@@ -17,6 +17,32 @@
     </div>
   </dl>
 
+  <p>Total: <%= @product_models.count %></p>
+
+  <% @product_models.each do |product_model| %>
+    <dl class="details-container__wrapper">
+      <div>
+        <dt>Nome:</dt>
+        <dd><%= product_model.name %></dd>
+      </div>
+
+      <div>
+        <dt>SKU:</dt>
+        <dd><%= product_model.sku %></dd>
+      </div>
+
+      <div>
+        <dt>Dimensão:</dt>
+        <dd><%= product_model.height %>cm x <%= product_model.width %>cm x <%= product_model.depth %>cm </dd>
+      </div>
+
+      <div>
+        <dt>Peso:</dt>
+        <dd><%= product_model.weight %>g</dd>
+      </div>
+    </dl>
+  <% end %>
+
   <div class='btn--controls'>
     <%= link_to 'Editar', edit_supplier_path(@supplier), class: "btn btn-primary" %>
     <%= link_to 'Voltar', root_path, class: "btn btn-secondary" %>

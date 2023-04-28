@@ -1,4 +1,4 @@
-<h1>Detalhes do Pedido</h1>
+<h1 style="margin-block-start: 1rem;">Detalhes do Pedido</h1>
 
 <section>
   <h2><%= Order.model_name.human %> - <%= @order.code %></h2>
@@ -25,5 +25,7 @@
     </div>
   </dl>
 
-  <%= link_to 'Editar', edit_order_path(@order.id) %>
+  <div class='btn--controls'>
+    <%= link_to 'Editar', edit_order_path(@order.id), class: "btn btn-primary" %>
+  </div>
 </section>

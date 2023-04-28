@@ -38,7 +38,7 @@ describe "Product form submission" do
     expect(page).to have_content("TV 40 polegadas")
     expect(page).to have_content("Fornecedor: Samsung")
     expect(page).to have_content("SKU: TV40-SAM-XPTO")
-    expect(page).to have_content("Dimensão: 60cm x 90cm x10cm")
+    expect(page).to have_content("Dimensão: 60cm x 90cm x 10cm")
     expect(page).to have_content("Peso: 10000g")
   end
 

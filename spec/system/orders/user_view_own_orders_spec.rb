@@ -123,4 +123,68 @@ describe "Order index view" do
     expect(current_path).to eq root_path
     expect(page).to have_content "Você não possui acesso a esse pedido."
   end
+
+  it "should displays the name and quantity of each item in the order" do
+    supplier = Supplier.create!(
+      corporate_name: "Samsung", brand_name: "Samsung Corporation",
+      registration_number: "22.222.222/2222-3",
+      full_address: "Av. Main Street, 111", city: "Curitiba",
+      state: "PR", email: "example@acme.com",
+    )
+
+    product_a = ProductModel.create!(
+      name: "Produto A",
+      weight: 227,
+      width: 7,
+      height: 10,
+      depth: 10,
+      sku: "SGS21ULTRA-BLK",
+      supplier: supplier,
+    )
+
+    product_b = ProductModel.create!(
+      name: "Produto B",
+      weight: 2400,
+      width: 144,
+      height: 83,
+      depth: 11,
+      sku: "OLED65CX-SRTTV-22",
+      supplier: supplier,
+    )
+
+    user = User.create!(name: "Maria", email: "maria@email.com", password: "123123")
+
+    warehouse = Warehouse.create!(
+      name: "Maceio", code: "MCZ",
+      city: "Maceio", area: 50_000,
+      address: "Av. Main Street", cep: "30000-000",
+      description: "Galpão de Maceio",
+    )
+
+    order = Order.create!(
+      user: user, warehouse: warehouse,
+      supplier: supplier, estimated_delivery_date: 2.day.from_now,
+    )
+
+    OrderItem.create!(
+      product_model: product_a,
+      order: order,
+      quantity: 19,
+    )
+
+    OrderItem.create!(
+      product_model: product_b,
+      order: order,
+      quantity: 12,
+    )
+
+    login_as(user)
+    visit root_path
+    click_on "Meus Pedidos"
+    click_on order.code
+
+    expect(page).to have_content "Itens do Pedido"
+    expect(page).to have_content "19 x Produto A"
+    expect(page).to have_content "12 x Produto B"
+  end
 end

@@ -32,5 +32,9 @@
 
   <div class='btn--controls'>
     <%= link_to 'Editar', edit_order_path(@order.id), class: "btn btn-primary" %>
+    <% if @order.pending? %>
+      <%= button_to 'Marcar como ENTREGUE', delivered_order_path(@order.id), class: "btn btn-accent" %>
+      <%= button_to 'Marcar como CANCELADO', canceled_order_path(@order.id), class: "btn btn-alert" %>
+    <% end %>
   </div>
 </section>

@@ -29,6 +29,11 @@
   color: #ebebeb;
 }
 
+.btn-accent {
+  background: #34a316;
+  color: #ebebeb;
+}
+
 .btn--controls {
   align-items: center;
   display: flex;

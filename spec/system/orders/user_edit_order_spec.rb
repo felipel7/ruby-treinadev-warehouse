@@ -1,16 +1,8 @@
 require "rails_helper"
 
-describe "Order index view" do
-  it "should ensure user is authenticated" do
-    visit root_path
-    click_on "Meus Pedidos"
-
-    expect(current_path).to eq new_user_session_path
-  end
-
-  it "should not be able to show orders from another user" do
+describe "Edit Order" do
+  it "should ensure user is authenticated to edit order" do
     user = User.create!(name: "Maria", email: "maria@email.com", password: "123123")
-    another_user = User.create!(name: "Felipe", email: "felipe@email.com", password: "123123")
 
     warehouse = Warehouse.create!(
       name: "Maceio", code: "MCZ",
@@ -26,31 +18,17 @@ describe "Order index view" do
       state: "PR", email: "example@acme.com",
     )
 
-    first_order = Order.create!(
+    order = Order.create!(
       user: user, warehouse: warehouse,
       supplier: supplier, estimated_delivery_date: 1.day.from_now,
     )
 
-    second_order = Order.create!(
-      user: another_user, warehouse: warehouse,
-      supplier: supplier, estimated_delivery_date: 2.day.from_now,
-    )
+    visit edit_order_path(order.id)
 
-    third_order = Order.create!(
-      user: user, warehouse: warehouse,
-      supplier: supplier, estimated_delivery_date: 3.day.from_now,
-    )
-
-    login_as(user)
-    visit root_path
-    click_on "Meus Pedidos"
-
-    expect(page).to have_content first_order.code
-    expect(page).not_to have_content second_order.code
-    expect(page).to have_content third_order.code
+    expect(current_path).to eq new_user_session_path
   end
 
-  it "should see order details" do
+  it "should edit order successfully" do
     user = User.create!(name: "Maria", email: "maria@email.com", password: "123123")
 
     warehouse = Warehouse.create!(
@@ -76,16 +54,17 @@ describe "Order index view" do
     visit root_path
     click_on "Meus Pedidos"
     click_on order.code
+    click_on "Editar"
+    fill_in "Data Prevista de Entrega", with: "12/12/2100"
+    select "ACME", from: "Fornecedor"
+    click_on "Gravar"
 
-    expect(page).to have_content "Detalhes do Pedido"
-    expect(page).to have_content order.code
-    expect(page).to have_content "Galpão Destino: MCZ - Maceio"
+    expect(page).to have_content "Pedido atualizado com sucesso."
     expect(page).to have_content "Fornecedor: ACME"
-    formatted_date = I18n.localize(1.day.from_now.to_date)
-    expect(page).to have_content "Data Prevista de Entrega: #{formatted_date}"
+    expect(page).to have_content "Data Prevista de Entrega: 12/12/2100"
   end
 
-  it "should not be able to access orders' details from another user" do
+  it "should ensure user is authorized to edit order" do
     user = User.create!(name: "Maria", email: "maria@email.com", password: "123123")
     another_user = User.create!(name: "Felipe", email: "felipe@email.com", password: "123123")
 
@@ -103,21 +82,14 @@ describe "Order index view" do
       state: "PR", email: "example@acme.com",
     )
 
-    first_order = Order.create!(
+    order = Order.create!(
       user: user, warehouse: warehouse,
       supplier: supplier, estimated_delivery_date: 1.day.from_now,
     )
 
-    second_order = Order.create!(
-      user: another_user, warehouse: warehouse,
-      supplier: supplier, estimated_delivery_date: 2.day.from_now,
-    )
+    login_as(another_user)
+    visit edit_order_path(order.id)
 
-    login_as(user)
-    visit order_path(second_order.id)
-
-    expect(current_path).not_to eq order_path(second_order.id)
     expect(current_path).to eq root_path
-    expect(page).to have_content "Você não possui acesso a esse pedido."
   end
 end

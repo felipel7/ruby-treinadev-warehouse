@@ -53,7 +53,8 @@ describe "Order form" do
     expect(page).to have_content "Galpão Destino: GRU - Aeroporto SP"
     expect(page).to have_content "Fornecedor: Samsung"
     expect(page).to have_content "Usuário responsável: Maria - maria@email.com"
-    expect(page).to have_content "Data Prevista de Entrega: #{1.day.from_now.strftime("%d/%m/%Y")}"
+    formatted_date = I18n.localize(1.day.from_now.to_date)
+    expect(page).to have_content "Data Prevista de Entrega: #{formatted_date}"
     expect(page).not_to have_content "Galpão Rio de janeiro"
     expect(page).not_to have_content "LG do Brasil LTDA"
   end

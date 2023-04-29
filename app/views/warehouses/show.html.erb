@@ -33,6 +33,13 @@
     </div>
   </dl>
 
+  <ul>
+    <h3>Itens em Estoque:</h3>
+    <% @stocks.each_pair do |product, qtd| %>
+      <li><%= qtd %> x <%= product.sku %></li>
+    <% end %>
+  </ul>
+
   <div class="btn--controls">
     <%= link_to 'Editar', edit_warehouse_path(@warehouse), class: 'btn btn-primary' %>
     <%= button_to 'Remover', warehouse_path(@warehouse), method: :delete, class: 'btn btn-alert' %>

@@ -3,7 +3,7 @@
 }
 
 .flash__message {
-  max-width: 980px;
+  max-width: 1024px;
   margin-inline: auto;
   font-weight: bold;
 }
@@ -16,4 +16,23 @@
 .notice {
   background: #34a316;
   color: #efefef;
+}
+
+.list__error-messages {
+  outline: 2px solid #f5c2c7;
+  border-radius: 10px;
+  width: fit-content;
+  padding: 20px 20px 20px 30px;
+  list-style: disc;
+  background: #f8d7da;
+  color: #842029;
+  margin-block: 0.5rem 0.7rem;
+}
+
+.list__error-messages li {
+  margin-block: 0.2rem;
+}
+
+.list__order-items {
+  margin-block: 1rem;
 }

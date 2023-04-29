@@ -29,7 +29,10 @@
               <%= form_with(url: search_orders_path, method: :get)  do |form| %>
                 <label>
                   <%= form.text_field :query, placeholder: "Buscar Pedido" %>
-                  <%= button_tag 'Buscar', type: "submit"  %>
+                  <button type="submit">
+                    <!--<%= button_tag 'Buscar', type: "submit"  %>-->
+                    <%= image_tag asset_path('search.svg'), width: "22", alt: "Buscar" %>
+                  </button>
                 </label>
               <% end %>
             <% end %>

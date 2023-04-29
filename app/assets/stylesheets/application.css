@@ -36,9 +36,9 @@ main > * {
   grid-column: 1 / span 3;
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1200px) {
   main {
-    grid-template-columns: 1fr 980px 1fr;
+    grid-template-columns: 1fr 1024px 1fr;
   }
 }
 

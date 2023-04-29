@@ -8,7 +8,7 @@
   <%= link_to 'Cadastrar novo', new_product_model_path %>
 
   <% @product_models.each do |product| %>
-    <dl class="details-container__wrapper">
+    <dl class="details-container__wrapper" style="margin-block: 1.5rem;">
       <div>
         <dt>Nome:</dt>
         <dd><%= product.name %></dd>

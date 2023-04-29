@@ -1,7 +1,7 @@
 <% if @supplier.errors.any? %>
   <p>Verifique os erros abaixo:</p>
 
-  <ul>
+  <ul class="list__error-messages">
     <% @supplier.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
     <% end %>

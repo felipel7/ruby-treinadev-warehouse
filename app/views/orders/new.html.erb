@@ -1,8 +1,10 @@
 <section>
-  <h2>Registrar pedido</h2>
+  <h2 style="margin-block-end: 1rem;">Registrar pedido</h2>
 
   <% if @order.errors&.any? %>
-    <ul>
+    <p>Verifique os erros abaixo:</p>
+
+    <ul class="list__error-messages">
       <% @order.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>

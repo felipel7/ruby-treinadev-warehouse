@@ -17,10 +17,10 @@
     </div>
   </dl>
 
-  <p>Total: <%= @product_models.count %></p>
+  <p style="margin-block: 1.5rem 0.5rem;">Total: <%= @product_models.count %></p>
 
   <% @product_models.each do |product_model| %>
-    <dl class="details-container__wrapper">
+    <dl class="details-container__wrapper" style="margin-block-end: 1.5rem;">
       <div>
         <dt>Nome:</dt>
         <dd><%= product_model.name %></dd>

@@ -1,6 +1,6 @@
 <% if @warehouse.errors.any? %>
   <p>Verifique os erros abaixo:</p>
-  <ul class="list--error-messages">
+  <ul class="list__error-messages">
     <% @warehouse.errors.full_messages.each do |msg|  %>
       <li><%= msg %></li>
     <% end %>

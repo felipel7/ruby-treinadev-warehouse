@@ -3,6 +3,7 @@ class Order < ApplicationRecord
   belongs_to :supplier
   belongs_to :user
   has_many :order_items
+  has_many :product_models, through: :order_items
 
   enum status: { pending: 0, delivered: 5, canceled: 9 }
 

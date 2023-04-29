@@ -112,7 +112,7 @@ RSpec.describe Order, type: :model do
       expect(result).to eq true
     end
 
-    it "should ensure the generate value is unique" do
+    it "should ensure that the generated code value is unique" do
       user = User.create!(name: "Maria", email: "maria@email.com", password: "123123")
 
       warehouse = Warehouse.create!(
@@ -142,6 +142,34 @@ RSpec.describe Order, type: :model do
       second_order.save!
 
       expect(second_order.code).not_to eq first_order.code
+    end
+
+    it "should ensure that the generated code value cannot be modified" do
+      user = User.create!(name: "Maria", email: "maria@email.com", password: "123123")
+
+      warehouse = Warehouse.create!(
+        name: "Maceio", code: "MCZ",
+        city: "Maceio", area: 50_000,
+        address: "Av. Main Street", cep: "30000-000",
+        description: "Galpão de Maceio",
+      )
+
+      supplier = Supplier.create!(
+        corporate_name: "ACME", brand_name: "ACME Corporation",
+        registration_number: "22.222.222/2222-2",
+        full_address: "Av. Main Street, 123", city: "Curitiba",
+        state: "PR", email: "example@acme.com",
+      )
+
+      order = Order.create!(
+        user: user, warehouse: warehouse,
+        supplier: supplier, estimated_delivery_date: 1.week.from_now,
+      )
+
+      original_code = order.code
+      order.update!(estimated_delivery_date: 2.week.from_now)
+
+      expect(order.code).to eq original_code
     end
   end
 end

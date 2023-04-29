@@ -1,7 +1,7 @@
 <section>
   <h2>Novo Item para o Pedido <%= @order.code %></h2>
 
-  <%= form_with(model: [@order, @order_item]) do |form|  %>
+  <%= form_with(model: [@order, @order_item], class: "form") do |form|  %>
     <p>
       <%= form.label :product_model_id, 'Produto' %>
       <%= form.collection_select :product_model_id, @products, :id, :name %>

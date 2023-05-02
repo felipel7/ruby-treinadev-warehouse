@@ -17,4 +17,10 @@ Rails.application.routes.draw do
       resources :order_items, only: [:new, :create]
     end
   end
+
+  namespace :api do
+    namespace :v1 do
+      resources :warehouses, only: [:show]
+    end
+  end
 end

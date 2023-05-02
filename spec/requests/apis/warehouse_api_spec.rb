@@ -66,5 +66,80 @@ describe "Warehouse API" do
       expect(response.content_type).to include "application/json"
       expect(json_response).to eq []
     end
+
+    it "should raise an internal error" do
+      allow(Warehouse).to receive(:all).and_raise(ActiveRecord::QueryCanceled)
+
+      get "/api/v1/warehouses"
+
+      expect(response).to have_http_status(500)
+    end
+  end
+
+  context "POST /api/v1/warehouses" do
+    it "should create a warehouse with success" do
+      warehouse_params = { # payload
+        warehouse: {
+          name: "Maceio",
+          code: "MCZ",
+          city: "Maceio",
+          area: 50_000,
+          address: "Av. Main Street", cep: "30000-000",
+          description: "Galpão de Maceio",
+        },
+      }
+
+      post "/api/v1/warehouses", params: warehouse_params
+      json_response = JSON.parse(response.body)
+
+      # expect(response.status).to eq 201 # created
+      # expect(response).to have_http_status :created
+      expect(response).to have_http_status 201
+      expect(response.content_type).to include "application/json"
+      expect(json_response["name"]).to eq "Maceio"
+      expect(json_response["code"]).to eq "MCZ"
+      expect(json_response["city"]).to eq "Maceio"
+      expect(json_response["description"]).to eq "Galpão de Maceio"
+    end
+
+    it "should fail if parameter is empty" do
+      warehouse_params = {
+        warehouse: {
+          name: "Aeroporto Curitiba",
+          code: "CWB",
+          city: "",
+          area: 50_000,
+          address: "",
+          cep: "",
+          description: "",
+        },
+      }
+
+      post "/api/v1/warehouses", params: warehouse_params
+
+      expect(response).to have_http_status 412
+      expect(response.body).not_to include "Nome não pode ficar em branco"
+      expect(response.body).not_to include "Código não pode ficar em branco"
+      expect(response.body).to include "Cidade não pode ficar em branco"
+      expect(response.body).to include "Endereço não pode ficar em branco"
+    end
+
+    it "should fail if there is an internal error" do
+      allow(Warehouse).to receive(:new).and_raise(ActiveRecord::ActiveRecordError)
+      warehouse_params = {
+        warehouse: {
+          name: "Maceio",
+          code: "MCZ",
+          city: "Maceio",
+          area: 50_000,
+          address: "Av. Main Street", cep: "30000-000",
+          description: "Galpão de Maceio",
+        },
+      }
+
+      post "/api/v1/warehouses", params: warehouse_params
+
+      expect(response).to have_http_status 500
+    end
   end
 end
